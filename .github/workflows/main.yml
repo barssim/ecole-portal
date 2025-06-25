@@ -3,7 +3,7 @@ name : Build & Deploy ecole-portal app
 on:
   push:
     branches:
-      - master
+      - main
       
 jobs:
   build-deploy:
