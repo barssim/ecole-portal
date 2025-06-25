@@ -1,0 +1,35 @@
+{
+	"whatWeDo":"Bienvenue sur le site de l'ecole Gardinia",
+	"whatYouFind": "Un contact continue 24/7 avec l'administation et avec le group d'enseignement",
+	"administration": "Administration",
+	"enseignement": "Enseignement",
+	"services": "Services",
+	"finance": "Finance",
+	"annonces": "Annonces",
+	"activités": "Activités",
+
+
+	"whoAreWe": "Qui sommes-nous?",
+	"connection": "Connection",
+	"registration": "Inscription",
+	"overTheTime": "24h sur 24h et pendant toutes les jours de la semaine",
+	"search": "chercher",
+	"success_fully_logged_out": "Vous étes deconnect&eacute avec succ&eacutes",
+	"code_message":  "Vous avez recu un code par Email, veuillez  l'entrer ici pour compl&eacuteter votre enregistrement.",
+	"thanks_message":  "Merci pour votre inscription!",
+	"message_to_send":  "Code d'enregistrement sur le site ",
+	"code_incorrect":  "le code que vous avez entr&eacute n'est pas correct! Veuiller entrer le code correct svp!",
+	"welcomeon_site":  "Bienvenue sur le site ",
+	"recommander":  " Veuillez recommander l'article maintenant",
+	"username_incorrect":  "Cet nom d'utilisateur n'existe pas, veuillez s'inscrire svp!",
+	"password_incorrect":  "Mot de pass incorrect",
+	"more_attemp_to_registe":  "le code que vous avez entr&eacute n'est pas correct!",
+	"user_already_exist":  "Le nom d'utilisateur que vous avez choisi exist déjà, veuillez choisir un autre svp!",
+	"successfull_profile_update":  "Votre profile a &eacutet&eacute actualis&eacute avec succ&eacutes",
+	"registration_failed":  "Enregistrement echou&eacute",
+	"unsuccessfull_profile_update":  "la mise &agrave jour du profile a echou&eacute",
+	"successfully_logged_out":  "Vous étes deconnect&eacute avec succ&eacutes",
+	"enter": "Entrer",
+	"rigths_reserved": "Tous droits réservés."
+	
+}

@@ -1,0 +1,35 @@
+{
+	"whatWeDo":"مرحبًا بكم على موقع مؤسسة غاردينيا",
+	"whatYouFind": "تواصل مستمر على مدار الساعة مع الادارة وهيئة التدريس",
+	"administration": "الادارة",
+	"enseignement": "التعليم",
+	"services": "الخدمات",
+	"finance": "المالية",
+	"annonces": "الإعلانات",
+	"activités": "الأنشطة",
+
+	"whoAreWe": "من نحن؟",
+	"connection": "تسجيل الدخول",
+	"registration": "التسجيل",
+	"overTheTime": "متاح 24 ساعة في اليوم وطوال أيام الأسبوع",
+	"search": "بحث",
+	"success_fully_logged_out": "تم تسجيل الخروج بنجاح",
+	"code_message": "لقد استلمت رمزًا عبر البريد الإلكتروني، يرجى إدخاله هنا لإتمام التسجيل.",
+	"thanks_message": "شكرًا لتسجيلك!",
+	"message_to_send": "رمز التسجيل على الموقع",
+	"code_incorrect": "الرمز الذي أدخلته غير صحيح! يرجى إدخال الرمز الصحيح.",
+	"welcomeon_site": "مرحبًا بك في موقع",
+	"recommander": "يرجى التوصية بالمقال الآن",
+	"username_incorrect": "اسم المستخدم هذا غير موجود، يرجى التسجيل!",
+	"password_incorrect": "كلمة المرور غير صحيحة",
+	"more_attemp_to_registe": "الرمز الذي أدخلته غير صحيح!",
+	"user_already_exist": "اسم المستخدم الذي اخترته موجود بالفعل، يرجى اختيار اسم آخر!",
+	"successfull_profile_update": "تم تحديث الملف الشخصي بنجاح",
+	"registration_failed": "فشل في التسجيل",
+	"unsuccessfull_profile_update": "فشل في تحديث الملف الشخصي",
+	"successfully_logged_out": "تم تسجيل الخروج بنجاح",
+	"enter": "أدخل",
+	"rigths_reserved": "جميع الحقوق محفوظة."
+
+
+}
