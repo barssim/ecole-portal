@@ -1,10 +1,19 @@
 import React from 'react';
 import fr from "../locales/footer/fr.json";
 import ar from "../locales/footer/ar.json";
+import en from "../locales/footer/en.json";
 import { COMPANYNAME , COMPANYPHONE, COMPANYEMAIL} from "../globals.js";
 
 const Footer = ({ language, toggleLanguage }) => {
-	const content = language === "fr" ? fr : ar;
+	let content;
+
+if (language === "fr") {
+  content = fr;
+} else if (language === "en") {
+  content = en;
+} else {
+  content = ar;
+};
    return (
        <footer className="footer">
            <p>&copy; 2024 {COMPANYNAME} </p>

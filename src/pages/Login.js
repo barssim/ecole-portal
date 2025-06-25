@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import "../cssFiles/Login.css"; // Optional: Style the login form
 import axios from 'axios';
 import { REST_API_GATEWAY_URL } from "../globals.js";
-import fr from "../locales/fr.json";
-import ar from "../locales/ar.json";
+import fr from "../locales/header/fr.json";
+import ar from "../locales/header/ar.json";
+import en from "../locales/header/en.json";
 
 const Login = ({language}) => {
-	const content = language === "fr" ? fr : ar;
+	let content;
+
+if (language === "fr") {
+  content = fr;
+} else if (language === "en") {
+  content = en;
+} else {
+  content = ar;
+};
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');

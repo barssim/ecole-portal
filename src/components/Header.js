@@ -1,11 +1,22 @@
 import React from 'react';
 import fr from "../locales/header/fr.json";
 import ar from "../locales/header/ar.json";
+import en from "../locales/header/en.json";
+
+
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ language, toggleLanguage, cartItemCount }) => {
-	const content = language === "fr" ? fr : ar;
+	let content;
+
+if (language === "fr") {
+  content = fr;
+} else if (language === "en") {
+  content = en;
+} else {
+  content = ar;
+};
 	const navigate = useNavigate();
 	const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 	const loggedIn = localStorage.getItem("LoggedIn");
@@ -63,7 +74,14 @@ const Header = ({ language, toggleLanguage, cartItemCount }) => {
 					className="language-toggle"
 					onClick={toggleLanguage}
 					style={{
-						backgroundImage: `url(${language === "ar" ? "../images/frensh.jpg" : "../images/maroc.jpg"})`,
+						backgroundImage: `url(${
+                          language === "ar"
+                            ? "../images/maroc.jpg"
+                            : language === "fr"
+                            ? "../images/frensh.jpg"
+                            : "../images/english.jpeg"
+                        })`,
+
 						backgroundSize: "cover",
 						backgroundPosition: "center",
 						width: "40px",

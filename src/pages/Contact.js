@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import fr from "../locales/header/fr.json";
 import ar from "../locales/header/ar.json";
+import en from "../locales/header/en.json";
 import {  COMPANYPHONE, COMPANYEMAIL} from "../globals.js";
 
 const Contact = ({ language }) => {
-	const content = language === "fr" ? fr : ar;
+	let content;
+
+if (language === "fr") {
+  content = fr;
+} else if (language === "en") {
+  content = en;
+} else {
+  content = ar;
+};
   const [formData, setFormData] = useState({
     name: "",
     email: "",
