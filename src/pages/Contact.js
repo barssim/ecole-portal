@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import fr from "../locales/header/fr.json";
 import ar from "../locales/header/ar.json";
 import en from "../locales/header/en.json";
-import {  COMPANYPHONE, COMPANYEMAIL} from "../globals.js";
+import ecole from '../ecoleLoader';
 
 const Contact = ({ language }) => {
 	let content;
@@ -95,9 +95,9 @@ if (language === "fr") {
       </form>
 
       <div style={{ marginTop: "20px", textAlign: "center" }}>
-        <p>{content.companyAdresse}</p>
-        <p>Phone:{COMPANYPHONE}</p>
-        <p>Email: {COMPANYEMAIL}</p>
+        <p>{ecole.adresse[language]}</p>
+        <p>Phone:{ecole.phone}</p>
+        <p>Email: {ecole.mail}</p>
       </div>
     </div>
   );

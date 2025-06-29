@@ -5,6 +5,7 @@ import fr from "../locales/fr.json";
 import ar from "../locales/ar.json";
 import en from "../locales/en.json";
 
+
 const Home = ({ language }) => {
   const [showActivites, setShowActivites] = useState(true); // default open
 

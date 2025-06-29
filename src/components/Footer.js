@@ -2,7 +2,7 @@ import React from 'react';
 import fr from "../locales/footer/fr.json";
 import ar from "../locales/footer/ar.json";
 import en from "../locales/footer/en.json";
-import { COMPANYNAME , COMPANYPHONE, COMPANYEMAIL} from "../globals.js";
+import ecole from '../ecoleLoader';
 
 const Footer = ({ language, toggleLanguage }) => {
 	let content;
@@ -16,20 +16,19 @@ if (language === "fr") {
 };
    return (
        <footer className="footer">
-           <p>&copy; 2024 {COMPANYNAME} </p>
+           <p>&copy; 2024 {ecole.name[language] || ecole.name["fr"]} </p>
            <div>
                <a href={content.facebook_link} target="_blank" rel="noopener noreferrer" style={{ marginRight: '10px' }}>Facebook</a>
                <a href={content.twitter_link} target="_blank" rel="noopener noreferrer">Twitter</a>
            </div>
            <address>
-               {content.companyAdresse}
+               {ecole.adresse[language]}
                <br />
-               Phone: {COMPANYPHONE}
+               Phone: {ecole.phone}
                <br />
-               Email: {COMPANYEMAIL}
+               Email: {ecole.mail}
            </address>
        </footer>
    );
 };
-
 export default Footer;

@@ -2,6 +2,7 @@ import React from 'react';
 import fr from "../locales/header/fr.json";
 import ar from "../locales/header/ar.json";
 import en from "../locales/header/en.json";
+import ecole from '../ecoleLoader';
 
 
 import "../App.css";
@@ -34,8 +35,8 @@ if (language === "fr") {
 			{/* Logo Section */}
 			<div className="header-logo">
 				<img
-					src="../images/logoS.png"
-					alt="Logo"
+					src={ecole.logo}
+					alt={ecole.name[language] || ecole.name["fr"]}
 					style={{
 						width: "70px",
 						height: "50px",

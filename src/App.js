@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ChatApp from './components/ChatApp';
+import PostInvoice from './components/PostInvoice';
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
@@ -14,6 +16,7 @@ import fr from "./locales/fr.json";
 import ar from "./locales/ar.json";
 import en from "./locales/en.json";
 import "./App.css";
+import ecole from './ecoleLoader';
 
 function App() {
 	const [language, setLanguage] = useState("fr"); // Track current language
@@ -44,10 +47,11 @@ if (language === "fr") {
 
 				{/* Right Content */}
 				<div style={{ flex: 1, padding: "10px", textAlign: "center" }}>
-					<h1>{content.whatWeDo}</h1>
+					<h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
 					<h3>{content.whatYouFind}</h3>
-
-
+<Routes>
+			<Route path="/finance/factures" element={<PostInvoice />} />
+	</Routes>
 				</div>
 
 			</div>
@@ -60,6 +64,7 @@ if (language === "fr") {
 				<Route path="/logout" element={<Logout language={language} toggleLanguage={toggleLanguage} />} />
 				<Route path="/inscription" element={<Inscription language={language} toggleLanguage={toggleLanguage} />} />
 			</Routes>
+			<ChatApp language={language} toggleLanguage={toggleLanguage} />
 			<Footer language={language} toggleLanguage={toggleLanguage} />
 		</Router>
 	);
