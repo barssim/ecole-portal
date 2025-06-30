@@ -5,6 +5,7 @@ const gardinia = {
      ar: "مدرسة جاردينيا",
    },
  logo: "/logos/gardinia.png",
+ image: "/images/gardinia.jpeg",
  adresse:
     {
          en: "Avenue Zarbia, Building 19, Sala El Jadida",

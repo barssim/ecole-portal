@@ -46,9 +46,21 @@ if (language === "fr") {
 				</div>
 
 				{/* Right Content */}
-				<div style={{ flex: 1, padding: "10px", textAlign: "center" }}>
-					<h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
-					<h3>{content.whatYouFind}</h3>
+				<div
+                  style={{
+                    flex: 1,
+                       padding: "10px",
+                       textAlign: "center",
+                       backgroundImage: `url(${ecole.image})`,
+                       backgroundRepeat: "no-repeat",
+                       backgroundSize: "cover",
+                       backgroundPosition: "center",
+                  }}
+                  className="h-64 bg-cover bg-center"
+                >
+                  <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
+                  <h3>{content.whatYouFind}</h3>
+
 <Routes>
 			<Route path="/finance/factures" element={<PostInvoice />} />
 	</Routes>

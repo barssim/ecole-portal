@@ -1,10 +1,11 @@
 const qods = {
    name: {
        en: "Qods School",
-       fr: "École Qods",
+       fr: "l' ecole Qods",
        ar: "مدرسة القدس",
      },
    logo: "/logos/qods.png",
+   image: "/images/qods.jpeg",
     adresse:
        {
             en: "Avenue Meknes, Building 1, Sala El Jadida",
