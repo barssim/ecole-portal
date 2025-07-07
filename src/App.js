@@ -17,10 +17,16 @@ import ar from "./locales/ar.json";
 import en from "./locales/en.json";
 import "./App.css";
 import ecole from './ecoleLoader';
+import SchoolInvoicePreview from './components/SchoolInvoicePreview';
 
 function App() {
 	const [language, setLanguage] = useState("fr"); // Track current language
 	let content;
+	const fees = [
+        { description: "Tuition - July", amount: 1000 },
+        { description: "Books & Materials", amount: 300 },
+        { description: "Transport", amount: 200 },
+      ];
 
 if (language === "fr") {
   content = fr;
@@ -46,26 +52,58 @@ if (language === "fr") {
 				</div>
 
 				{/* Right Content */}
-				<div
-                  style={{
-                    flex: 1,
-                       padding: "10px",
-                       textAlign: "center",
-                       backgroundImage: `url(${ecole.image})`,
-                       backgroundRepeat: "no-repeat",
-                       backgroundSize: "cover",
-                       backgroundPosition: "center",
-                  }}
-                  className="h-64 bg-cover bg-center"
-                >
-                  <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
-                  <h3>{content.whatYouFind}</h3>
+				<div style={{ display: "flex",flexDirection: "column", gap: "10px" }}>
 
-<Routes>
-			<Route path="/finance/factures" element={<PostInvoice />} />
-	</Routes>
-				</div>
+               <div
+                               style={{
+                                 width: "fit-content",
+                                 height: "fit-content",
+                                 padding: "10px",
+                                 alignItems: "center"
+                               }}
+                             >
+                   <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
+                   <h4>{content.whatYouFind}</h4>
+                 </div>
 
+              <div
+                style={{
+                  width: "fit-content",
+                  height: "fit-content",
+                  padding: "10px",
+                }}
+              >
+                   <Routes>
+                     <Route path="/finance/factures" element={<PostInvoice />} />
+                     <Route
+                       path="/finance/payments"
+                       element={
+                         <SchoolInvoicePreview
+                           studentName="Yasmine El Idrissi"
+                           studentClass="5ème année"
+                           invoiceNumber="INV-2025-07-001"
+                           invoiceDate="2025-07-06"
+                           dueDate="2025-07-15"
+                           fees={fees}
+                         />
+                       }
+                     />
+                   </Routes>
+                 </div>
+                </div>
+               <div
+                 style={{
+                   width: "15%",
+                   padding: "10px",
+                   textAlign: "center", // optional
+                 }}
+               >
+                 <img
+                   src={ecole.image}
+                   alt="ecole image"
+                   style={{ width: "100%", height: "auto" }}
+                 />
+</div>
 			</div>
 
 			<br />

@@ -65,7 +65,7 @@ if (language === "fr") {
 
 		try {
 			const { surname, firstname, email, adresse, password } = formData;
-		//	const token = sessionStorage.getItem('jwt_token');
+			const token = sessionStorage.getItem('jwt_token');
 			const response = await axios.post(REST_API_GATEWAY_URL + "api/auth/register", {
 				surname,
 				firstname,
@@ -75,13 +75,13 @@ if (language === "fr") {
 			}, {
 				headers: {
 					'Content-Type': 'application/json', // Ensure correct content type
-			//		Authorization: `Bearer ${token}`  // Send the token if required
+					Authorization: `Bearer ${token}`  // Send the token if required
 				}
 			});
 
 			if (response.status === 201) {
 				setSuccess(content.registrationSuccess.replace("{surname}", surname));
-				//setError({});
+				setError({});
 				// Redirect the user to a protected page (you can use react-router here)
 				window.location.href = '/dashboard';  // Example redirection
 			} else {

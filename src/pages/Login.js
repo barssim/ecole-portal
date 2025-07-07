@@ -29,7 +29,7 @@ if (language === "fr") {
 		axios.post(REST_API_GATEWAY_URL + "api/auth/login", userCredentials)
 			.then(response => {
 				// Store the JWT token in sessionStorage
-				sessionStorage.setItem('jwt_token', response.data.token);
+				//sessionStorage.setItem('jwt_token', response.data.token);
 				// Store the login status in localStorage
 				localStorage.setItem("isLoggedIn", "true");
 				localStorage.setItem("LoggedIn", username);
