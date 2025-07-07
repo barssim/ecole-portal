@@ -18,15 +18,11 @@ import en from "./locales/en.json";
 import "./App.css";
 import ecole from './ecoleLoader';
 import SchoolInvoicePreview from './components/SchoolInvoicePreview';
+import Payments from './pages/Payments';
 
 function App() {
 	const [language, setLanguage] = useState("fr"); // Track current language
 	let content;
-	const fees = [
-        { description: "Tuition - July", amount: 1000 },
-        { description: "Books & Materials", amount: 300 },
-        { description: "Transport", amount: 200 },
-      ];
 
 if (language === "fr") {
   content = fr;
@@ -59,7 +55,7 @@ if (language === "fr") {
                                  width: "fit-content",
                                  height: "fit-content",
                                  padding: "10px",
-                                 alignItems: "center"
+                                 alignItems: "center",
                                }}
                              >
                    <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
@@ -74,20 +70,10 @@ if (language === "fr") {
                 }}
               >
                    <Routes>
-                     <Route path="/finance/factures" element={<PostInvoice />} />
-                     <Route
-                       path="/finance/payments"
-                       element={
-                         <SchoolInvoicePreview
-                           studentName="Yasmine El Idrissi"
-                           studentClass="5ème année"
-                           invoiceNumber="INV-2025-07-001"
-                           invoiceDate="2025-07-06"
-                           dueDate="2025-07-15"
-                           fees={fees}
-                         />
-                       }
-                     />
+                     <Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
+                     <Route path="/finance/paymentNotice" element={<SchoolInvoicePreview  language={language} toggleLanguage={toggleLanguage} />} />
+                     <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
+
                    </Routes>
                  </div>
                 </div>

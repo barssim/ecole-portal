@@ -45,7 +45,18 @@
 	"unsuccessfull_profile_update": "فشل في تحديث الملف الشخصي",
 	"successfully_logged_out": "تم تسجيل الخروج بنجاح",
 	"enter": "أدخل",
-	"rigths_reserved": "جميع الحقوق محفوظة."
+	"rigths_reserved": "جميع الحقوق محفوظة.",
 
+	"Payment_Notice": "إشعار الدفع",
+	"date": "التاريخ",
+	"invoice_due": "تاريخ الاستحقاق",
+	"invoice_recipient": "المستلم",
+	"invoice_class": "الفصل",
+	"invoice_fees_title": "الرسوم",
+	"invoice_total": "الإجمالي",
+
+	"student": "الطالب",
+	"amount": "المبلغ",
+	"method": "طريقة الدفع"
 
 }

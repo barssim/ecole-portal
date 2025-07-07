@@ -45,5 +45,18 @@
   "unsuccessfull_profile_update": "Profile update failed",
   "successfully_logged_out": "You have been successfully logged out",
   "enter": "Enter",
-  "rigths_reserved": "All rights reserved."
+  "rigths_reserved": "All rights reserved.",
+
+  "Payment_Notice": "Payment Notice",
+  "date": "Date",
+  "invoice_due": "Due",
+  "invoice_recipient": "Recipient",
+  "invoice_class": "Class",
+  "invoice_fees_title": "Fees",
+  "invoice_total": "Total",
+
+  "student": "Student",
+  "amount": "Amount",
+  "method": "Method"
+
 }

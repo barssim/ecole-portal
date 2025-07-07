@@ -1,69 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { REST_API_GATEWAY_URL } from "../globals.js";
+import fr from "../locales/fr.json";
+import ar from "../locales/ar.json";
+import en from "../locales/en.json";
 
-interface FeeItem {
-  description: string;
-  amount: number;
-}
+const SchoolInvoicePreview =  ({language}) => {
+                             	let content;
 
-interface SchoolInvoiceProps {
-  schoolName: string;
-  studentName: string;
-  studentClass: string;
-  invoiceNumber: string;
-  invoiceDate: string;
-  dueDate?: string;
-  fees: FeeItem[];
-}
+                             if (language === "fr") {
+                               content = fr;
+                             } else if (language === "en") {
+                               content = en;
+                             } else {
+                               content = ar;
+                             };
+  const [invoice, setInvoice] = useState(null);
 
-const SchoolInvoicePreview: React.FC<SchoolInvoiceProps> = ({
-  schoolName,
-  studentName,
-  studentClass,
-  invoiceNumber,
-  invoiceDate,
-  dueDate,
-  fees,
-}) => {
-  const totalAmount = fees.reduce((sum, fee) => sum + fee.amount, 0);
+  useEffect(() => {
+    axios.get(REST_API_GATEWAY_URL + "api/paymentNotice")
+      .then((response) => setInvoice(response.data))
+      .catch((error) => console.error('API error:', error));
+  }, []);
+
+  if (!invoice) return <div>Loading...</div>;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-6 rounded shadow-lg border">
-      <h2 className="text-2xl font-bold text-center mb-4">{schoolName}</h2>
+    <div dir={language === "ar" ? 'rtl' : 'ltr'}>
 
-      <div className="mb-4">
-        <p><strong>Numéro de facture: </strong>{invoiceNumber}</p>
-        <p><strong>Date de facturation : </strong>{invoiceDate}</p>
-        {dueDate && <p><strong>Date d’échéance: </strong>{dueDate}</p>}
-        <p><strong>Destinataire: </strong>{studentName}</p>
-        <p><strong>Class: </strong>{studentClass}</p>
-      </div>
+      <h2>{content.Payment_Notice}: {invoice.invoiceNumber}</h2>
+      <p>{content.date}: {invoice.invoiceDate}</p>
+      <p>{content.invoice_due}: {invoice.dueDate}</p>
+      <p>{content.invoice_recipient}: {invoice.recipient}</p>
+      <p>{content.invoice_class}: {invoice.class}</p>
 
-      <table className="w-full border border-collapse mb-4">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border px-4 py-2 text-left">Détails des frais</th>
-            <th /><th /><th />
-            <th className="border px-4 py-2 text-right">Montant (MAD)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fees.map((fee, idx) => (
-            <tr key={idx}>
-              <td className="border px-4 py-2">{fee.description}</td>
-              <th /><th /><th />
-              <td className="border px-4 py-2 text-right">{fee.amount.toFixed(2)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h3>{content.invoice_fees_title}:</h3>
+      <ul>
+        {invoice.items.map((item, index) => (
+          <li key={index}>
+            {item.label}: {item.amount} {invoice.currency}
+          </li>
+        ))}
+      </ul>
 
-      <div className="text-right text-lg font-semibold">
-        Total: {totalAmount.toFixed(2)} MAD
-      </div>
-
-      <p className="text-sm mt-4 text-gray-600 text-center">
-        Veuillez effectuer le paiement avant la date d’échéance. Merci !
-      </p>
+      <h4>{content.invoice_total}: {invoice.total} {invoice.currency}</h4>
     </div>
   );
 };

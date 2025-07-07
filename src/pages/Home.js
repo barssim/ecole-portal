@@ -12,12 +12,13 @@ const Home = ({ language }) => {
   let content = language === "fr" ? fr : language === "en" ? en : ar;
 
   return (
-    <div className="menu space-y-4 p-6 bg-gray-50 min-h-screen">
+    <div className="menu space-y-4 p-6 bg-gray-50 min-h-screen" >
       {/* Administration */}
       <div>
         <Link
           to="/administration"
-          className="block text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold"
+          className="block text-2xl bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold"
+
         >
           {content.administration}
         </Link>
@@ -198,6 +199,14 @@ const Home = ({ language }) => {
               {content.factures || "Factures"}
             </Link>
           </li>
+          <li>
+                      <Link
+                        to="/finance/paymentNotice"
+                        className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
+                      >
+                        {content.Payment_Notice || "Payment Notice"}
+                      </Link>
+                    </li>
         </ul>
       </div>
     </div>

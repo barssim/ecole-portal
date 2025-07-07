@@ -46,6 +46,20 @@
 	"unsuccessfull_profile_update":  "la mise &agrave jour du profile a echou&eacute",
 	"successfully_logged_out":  "Vous étes deconnect&eacute avec succ&eacutes",
 	"enter": "Entrer",
-	"rigths_reserved": "Tous droits réservés."
-	
+	"rigths_reserved": "Tous droits réservés.",
+
+	"Payment_Notice": "Avis de paiement",
+	"date": "Date",
+	"invoice_due": "Échéance",
+	"invoice_recipient": "Destinataire",
+	"invoice_class": "Classe",
+	"invoice_fees_title": "Frais",
+	"invoice_total": "Total",
+
+	"student": "Élève",
+	"amount": "Montant",
+	"method": "Méthode"
+
+
+
 }
