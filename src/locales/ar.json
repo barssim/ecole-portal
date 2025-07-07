@@ -57,6 +57,33 @@
 
 	"student": "الطالب",
 	"amount": "المبلغ",
-	"method": "طريقة الدفع"
+	"method": "طريقة الدفع",
+	"payments_title": "قائمة الدفعات",
+	"no_payments": "لا توجد دفعات مسجلة في الوقت الحالي.",
 
+	"presence_title": "حضور الأساتذة",
+	"presence_loading": "جاري التحميل...",
+	"presence_error": "فشل في جلب بيانات الحضور.",
+	"presence_empty": "لا يوجد أساتذة في هذا التاريخ.",
+	"presence_name": "الاسم",
+	"presence_scheduled": "الوقت المقرر",
+	"presence_checkin": "وقت الوصول",
+	"presence_status": "الحالة",
+	"presence_status_present": "حاضر",
+	"presence_status_late": "متأخر",
+	"presence_status_absent": "غائب",
+
+	"exam_program_title": "جدول الامتحانات",
+	"exam_program_empty": "لا توجد امتحانات مجدولة حالياً.",
+	"exam_subject": "المادة",
+	"exam_class": "القسم",
+	"exam_date": "التاريخ",
+	"exam_start_time": "وقت البداية",
+	"exam_end_time": "وقت النهاية",
+	"exam_room": "القاعة",
+	"exam_error": "حدث خطأ أثناء تحميل جدول الامتحانات.",
+	"loading": "جاري التحميل...",
+
+	"askSchoolAI": "اسأل الذكاء الاصطناعي الخاص بالمدرسة",
+	"submit": "ارسل"
 }

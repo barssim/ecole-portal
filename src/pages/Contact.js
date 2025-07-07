@@ -2,18 +2,11 @@ import React, { useState } from "react";
 import fr from "../locales/header/fr.json";
 import ar from "../locales/header/ar.json";
 import en from "../locales/header/en.json";
-import ecole from '../ecoleLoader';
 
 const Contact = ({ language }) => {
-	let content;
+  const content =
+    language === "fr" ? fr : language === "en" ? en : ar;
 
-if (language === "fr") {
-  content = fr;
-} else if (language === "en") {
-  content = en;
-} else {
-  content = ar;
-};
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,85 +15,93 @@ if (language === "fr") {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("{content.thankForContact}");
-    setFormData({ name: "", email: "", message: "" }); // Reset form
+    alert(content.thankForContact);
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>{content.contactUs}</h2>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>{content.contactUs}</h2>
+      <form onSubmit={handleSubmit} style={formStyle}>
         <input
           type="text"
           name="name"
-          placeholder="Your Name"
+          placeholder={content.name || "Dein Name"}
           value={formData.name}
           onChange={handleChange}
           required
-          style={{
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
+          style={wideInputStyle}
         />
         <input
           type="email"
           name="email"
-          placeholder="Your Email"
+          placeholder={content.email || "Deine E-Mail"}
           value={formData.email}
           onChange={handleChange}
           required
-          style={{
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-          }}
+          style={wideInputStyle}
         />
         <textarea
           name="message"
-          placeholder="Your Message"
+          placeholder={content.message || "Deine Nachricht"}
           value={formData.message}
           onChange={handleChange}
           required
-          style={{
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            fontSize: "16px",
-            minHeight: "100px",
-          }}
+          style={{ ...wideInputStyle, minHeight: "140px", resize: "vertical" }}
         />
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
+        <button type="submit" style={buttonStyle}>
           {content.submit}
         </button>
       </form>
-
-      <div style={{ marginTop: "20px", textAlign: "center" }}>
-        <p>{ecole.adresse[language]}</p>
-        <p>Phone:{ecole.phone}</p>
-        <p>Email: {ecole.mail}</p>
-      </div>
     </div>
   );
+};
+
+// 🎨 Stildefinitionen
+const containerStyle = {
+  padding: "40px",
+  maxWidth: "1000px",
+  margin: "auto",
+};
+
+const headingStyle = {
+  textAlign: "center",
+  marginBottom: "30px",
+  fontSize: "28px",
+};
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+};
+
+const wideInputStyle = {
+  padding: "16px",
+  border: "2px solid #aaa",
+  borderRadius: "6px",
+  fontSize: "18px",
+  fontWeight: "500",
+  width: "100%",
+  boxSizing: "border-box",
+};
+
+const buttonStyle = {
+  padding: "16px",
+  backgroundColor: "#007bff",
+  color: "white",
+  border: "none",
+  borderRadius: "6px",
+  fontSize: "18px",
+  fontWeight: "600",
+  cursor: "pointer",
+  width: "50%",
+  alignSelf: "center",
 };
 
 export default Contact;

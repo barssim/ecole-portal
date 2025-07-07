@@ -56,10 +56,35 @@
 	"invoice_fees_title": "Frais",
 	"invoice_total": "Total",
 
+	"payments_title": "Liste des paiements",
+	"no_payments": "Aucun paiement enregistré pour le moment.",
 	"student": "Élève",
 	"amount": "Montant",
-	"method": "Méthode"
+	"method": "Méthode",
 
+	"presence_title": "Présence des professeurs",
+	"presence_loading": "Chargement en cours...",
+	"presence_error": "Échec du chargement des données de présence.",
+	"presence_empty": "Aucun professeur n’est listé pour cette date.",
+	"presence_name": "Nom",
+	"presence_scheduled": "Heure prévue",
+	"presence_checkin": "Heure d’arrivée",
+	"presence_status": "Statut",
+	"presence_status_present": "Présent",
+	"presence_status_late": "En retard",
+	"presence_status_absent": "Absent",
 
+	"exam_program_title": "Programme des examens",
+	"exam_program_empty": "Aucun examen n'est prévu pour le moment.",
+	"exam_subject": "Matière",
+	"exam_class": "Classe",
+	"exam_date": "Date",
+	"exam_start_time": "Début",
+	"exam_end_time": "Fin",
+	"exam_room": "Salle",
+	"exam_error": "Erreur lors du chargement du programme.",
+	"loading": "Chargement...",
 
+	"askSchoolAI": "Posez votre question à l’Inteligence artificiel de l’école",
+	"submit": "envoyer"
 }

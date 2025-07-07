@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { REST_API_GATEWAY_URL } from "../globals.js";
+import fr from "../locales/fr.json";
+import en from "../locales/en.json";
+import ar from "../locales/ar.json";
 
-function AiChatBox() {
+const AiChatBox = ({ language }) => {
+   const content = language === "fr" ? fr : language === "en" ? en : ar;
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
@@ -20,7 +24,7 @@ function AiChatBox() {
 
   return (
     <div style={{ padding: "20px", maxWidth: "600px" }}>
-      <h2>Ask the School AI</h2>
+      <h2>{content.askSchoolAI}</h2>
       <textarea
         rows={4}
         value={prompt}
@@ -28,9 +32,8 @@ function AiChatBox() {
         placeholder="Ask a question like: Who enrolled in 2024?"
         style={{ width: "100%", marginBottom: "10px" }}
       />
-      <button onClick={handleSubmit}>Send</button>
+      <button onClick={handleSubmit}>{content.submit}</button>
       <div style={{ marginTop: "20px", whiteSpace: "pre-wrap" }}>
-        <strong>Response:</strong>
         <p>{response}</p>
       </div>
     </div>

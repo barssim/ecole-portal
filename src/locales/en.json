@@ -57,6 +57,22 @@
 
   "student": "Student",
   "amount": "Amount",
-  "method": "Method"
+  "method": "Method",
+  "payments_title": "List of Payments",
+  "no_payments": "No payments recorded at the moment.",
 
+  "presence_title": "Professor Presence",
+  "presence_loading": "Loading...",
+  "presence_error": "Failed to fetch presence data.",
+  "presence_empty": "No professors listed for this date.",
+  "presence_name": "Name",
+  "presence_scheduled": "Scheduled Time",
+  "presence_checkin": "Check-In Time",
+  "presence_status": "Status",
+  "presence_status_present": "Present",
+  "presence_status_late": "Late",
+  "presence_status_absent": "Absent",
+
+  "askSchoolAI": "Ask the School AI",
+  "submit": "Send"
 }

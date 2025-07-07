@@ -19,10 +19,18 @@ import "./App.css";
 import ecole from './ecoleLoader';
 import SchoolInvoicePreview from './components/SchoolInvoicePreview';
 import Payments from './pages/Payments';
+import ExamProgram  from './pages/ExamProgram';
+import ProfessorPresence from './components/ProfessorPresence';
+import Catalogue from './pages/library/Catalogue';
+import Borrow from './pages/library/Borrow';
+import Rules from './pages/library/Rules';
+import Bibliotheque from './pages/Bibliotheque';
 
 function App() {
 	const [language, setLanguage] = useState("fr"); // Track current language
 	let content;
+	const today = new Date().toISOString().split("T")[0];
+
 
 if (language === "fr") {
   content = fr;
@@ -48,7 +56,16 @@ if (language === "fr") {
 				</div>
 
 				{/* Right Content */}
-				<div style={{ display: "flex",flexDirection: "column", gap: "10px" }}>
+				<div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "10px",
+                                    maxWidth: "800px",
+                                    margin: "0 auto",
+                                    width: "100%"
+                                  }}
+                                >
 
                <div
                                style={{
@@ -60,20 +77,34 @@ if (language === "fr") {
                              >
                    <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
                    <h4>{content.whatYouFind}</h4>
+
                  </div>
 
-              <div
-                style={{
-                  width: "fit-content",
-                  height: "fit-content",
-                  padding: "10px",
-                }}
-              >
+              	<div
+                                                style={{
+                                                  display: "flex",
+                                                  flexDirection: "column",
+                                                  gap: "10px",
+                                                  maxWidth: "800px",
+                                                  margin: "0 auto",
+                                                  width: "100%"
+                                                }}
+                                              >
                    <Routes>
                      <Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
                      <Route path="/finance/paymentNotice" element={<SchoolInvoicePreview  language={language} toggleLanguage={toggleLanguage} />} />
                      <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
-
+                     <Route path="/administration/presence" element={<ProfessorPresence language={language} toggleLanguage={toggleLanguage} />} />
+                      <Route path="/administration/examens" element={<ExamProgram language={language} toggleLanguage={toggleLanguage} />} />
+                      <Route path="/services/bibliotheque" element={<Bibliotheque />} />
+                      <Route path="/services/bibliotheque/catalogue" element={<Catalogue />} />
+                      <Route path="/services/bibliotheque/emprunts" element={<Borrow />} />
+                      <Route path="/services/bibliotheque/reglement" element={<Rules />} />
+				      <Route path="/login" element={<Login language={language} toggleLanguage={toggleLanguage} />} />
+				      <Route path="/logout" element={<Logout language={language} toggleLanguage={toggleLanguage} />} />
+				      <Route path="/about" element={<About language={language} toggleLanguage={toggleLanguage} />} />
+				      <Route path="/inscription" element={<Inscription language={language} toggleLanguage={toggleLanguage} />} />
+				      <Route path="/contact" element={<Contact language={language} toggleLanguage={toggleLanguage} />} />
                    </Routes>
                  </div>
                 </div>
@@ -93,13 +124,6 @@ if (language === "fr") {
 			</div>
 
 			<br />
-			<Routes>
-				<Route path="/about" element={<About language={language} toggleLanguage={toggleLanguage} />} />
-				<Route path="/contact" element={<Contact language={language} toggleLanguage={toggleLanguage} />} />
-				<Route path="/login" element={<Login language={language} toggleLanguage={toggleLanguage} />} />
-				<Route path="/logout" element={<Logout language={language} toggleLanguage={toggleLanguage} />} />
-				<Route path="/inscription" element={<Inscription language={language} toggleLanguage={toggleLanguage} />} />
-			</Routes>
 			<ChatApp language={language} toggleLanguage={toggleLanguage} />
 			<Footer language={language} toggleLanguage={toggleLanguage} />
 		</Router>
