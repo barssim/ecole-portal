@@ -30,6 +30,7 @@ import ClassesPage from './pages/ClassesPage';
 import AttestationsPage from './pages/AttestationsPage';
 import SharedDocumentsPage from "./pages/SharedDocumentsPage";
 import ParentMeetingPage from "./pages/ParentMeetingPage";
+import StudentSchedulePage from "./pages/StudentSchedulePage";
 
 
 const ProtectedRoute = ({ allowedRoles, children }) => {
@@ -132,6 +133,7 @@ useEffect(() => {
 				      <Route path="/about" element={<About language={language} toggleLanguage={toggleLanguage} />} />
 				      <Route path="/inscription" element={<Inscription language={language} toggleLanguage={toggleLanguage} />} />
 				      <Route path="/contact" element={<Contact language={language} toggleLanguage={toggleLanguage} />} />
+				      <Route path="/students/schedule" element={<StudentSchedulePage language={language} toggleLanguage={toggleLanguage} />} />
                    </Routes>
                  </div>
                 </div>

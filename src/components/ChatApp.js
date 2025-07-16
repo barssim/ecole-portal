@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { REST_API_GATEWAY_URL } from "../globals.js";
 import fr from "../locales/fr.json";
 import en from "../locales/en.json";
 import ar from "../locales/ar.json";
@@ -12,7 +11,7 @@ const AiChatBox = ({ language }) => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post(REST_API_GATEWAY_URL + "api/ai/ask", {
+      const res = await axios.post(`${process.env.REACT_APP_API_GATEWAY_URL}/api/ai/ask`, {
         prompt: prompt,
       });
       setResponse(res.data);
