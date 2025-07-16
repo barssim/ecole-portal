@@ -1,6 +1,10 @@
 import React from "react";
+import fr from "../locales/fr.json";
+import en from "../locales/en.json";
+import ar from "../locales/ar.json";
 
-const StudentSchedulePage = () => {
+const StudentSchedulePage = ({ language }) => {
+  const content = language === "fr" ? fr : language === "en" ? en : ar;
   const schedule = [
     { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
     { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] },
