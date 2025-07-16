@@ -11,7 +11,7 @@
 	"examens": "Examens",
 	"inscription": "Inscription",
 	"presence": "Presence",
-	"payments": "Payments",
+	"payments": "Paiements",
 	"factures": "Factures",
 	"sorties": "Sorties",
 	"fetes": "Fêtes",
@@ -86,5 +86,25 @@
 	"loading": "Chargement...",
 
 	"askSchoolAI": "Posez votre question à l’Inteligence artificiel de l’école",
-	"submit": "envoyer"
+	"submit": "envoyer",
+
+	"students": "Élèves",
+	"grades": "Notes",
+	"schedule": "Emploi du temps",
+	"parents": "Parents",
+	"reports": "Rapports",
+	"messages": "Messages",
+
+	"courses": "Cours",
+	"assignments": "Devoirs",
+	"grades": "Notes",
+	"student_progress": "Progression de l'élève",
+	"contact_teacher": "Contacter l’enseignant",
+	"attestation_request": "Attestations sur demande",
+	"view": "Voir",
+	"download": "Télécharger",
+	"search": "Rechercher",
+	"shared_documents": "Documents partagés",
+	"parent_meetings": "Réunions avec les parents"
+
 }

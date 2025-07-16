@@ -74,5 +74,25 @@
   "presence_status_absent": "Absent",
 
   "askSchoolAI": "Ask the School AI",
-  "submit": "Send"
+  "submit": "Send",
+
+  "students": "Students",
+  "grades": "Grades",
+  "schedule": "Schedule",
+  "parents": "Parents",
+  "reports": "Reports",
+  "messages": "Messages",
+
+  "courses": "Courses",
+  "assignments": "Assignments",
+  "grades": "Grades",
+  "student_progress": "Student Progress",
+  "contact_teacher": "Contact Teacher",
+  "attestation_request": "Attestations on Demand",
+  "view": "View",
+  "download": "Download",
+  "search": "Search",
+  "shared_documents": "Shared Documents",
+  "parent_meetings": "Parent Meetings"
+
 }

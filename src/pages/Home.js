@@ -46,6 +46,14 @@ const Home = ({ language }) => {
             </Link>
           </li>
           <li>
+                      <Link
+                        to="/administration/classes"
+                        className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded hover:bg-blue-200 inline-block"
+                      >
+                        {content.classes}
+                      </Link>
+                    </li>
+          <li>
             <Link
               to="/administration/attestations"
               className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded hover:bg-blue-200 inline-block"
@@ -117,20 +125,149 @@ const Home = ({ language }) => {
           {content.enseignement}
         </Link>
         <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
+
+          <li>
+              <Link
+                to="/enseignement/cours"
+                className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
+              >
+                {content.courses}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/enseignement/devoirs"
+                className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
+              >
+                {content.assignments}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/enseignement/notes"
+                className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
+              >
+                {content.grades}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/enseignement/shared-documents"
+                className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
+              >
+                {content.shared_documents}
+              </Link>
+            </li>
           <li>
             <Link
-              to="/enseignement/professeurs"
-              className="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded hover:bg-indigo-200 inline-block"
+              to="/enseignement/parent-meetings"
+              className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
             >
-              {content.professeurs || "Professeurs"}
+              {content.parent_meetings}
+            </Link>
+          </li>
+
+        </ul>
+      </div>
+      {/* Students Section */}
+      <div>
+        <Link
+          to="/students"
+          className="block text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-md font-semibold"
+        >
+          {content.students || "Students"}
+        </Link>
+        <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
+          <li>
+            <Link
+              to="/students/grades"
+              className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+            >
+              {content.grades || "Grades"}
             </Link>
           </li>
           <li>
             <Link
-              to="/enseignement/classes"
-              className="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded hover:bg-indigo-200 inline-block"
+              to="/students/schedule"
+              className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
             >
-              {content.classes || "Classes"}
+              {content.schedule || "Schedule"}
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Parents Section */}
+      <div>
+        <Link
+          to="/parents"
+          className="block text-white bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-md font-semibold"
+        >
+          {content.parents || "Parents"}
+        </Link>
+        <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
+          <li>
+                      <Link
+                        to="/parents/presence"
+                        className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
+                      >
+                        {content.presence || "Presence"}
+                      </Link>
+                    </li>
+           <li>
+                      <Link
+                        to="/parents/payments"
+                        className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
+                      >
+                        {content.payments || "Payments"}
+                      </Link>
+                    </li>
+           <li>
+                       <Link
+                         to="/parents/schedule"
+                         className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+                       >
+                         {content.schedule || "Schedule"}
+                       </Link>
+                     </li>
+            <li>
+                       <Link
+                         to="/parents/grades"
+                         className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+                       >
+                         {content.grades || "Grades"}
+                       </Link>
+                     </li>
+            <li>
+                                   <Link
+                                     to="/parents/student_progress"
+                                     className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+                                   >
+                                     {content.student_progress || "Progression de l'élève"}
+                                   </Link>
+                                 </li>
+             <li>
+                                               <Link
+                                                 to="/parents/contact_teacher"
+                                                 className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+                                               >
+                                                 {content.contact_teacher || "Contacter l'enseignant"}
+                                               </Link>
+                                             </li>
+          <li>
+            <Link
+              to="/parents/reports"
+              className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
+            >
+              {content.reports || "Reports"}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/parents/messages"
+              className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
+            >
+              {content.messages || "Messages"}
             </Link>
           </li>
         </ul>

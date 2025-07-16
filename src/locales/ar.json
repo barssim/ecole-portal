@@ -85,5 +85,24 @@
 	"loading": "جاري التحميل...",
 
 	"askSchoolAI": "اسأل الذكاء الاصطناعي الخاص بالمدرسة",
-	"submit": "ارسل"
+	"submit": "ارسل",
+
+	"students": "الطلاب",
+	"grades": "الدرجات",
+	"schedule": "الجدول الزمني",
+	"parents": "أولياء الأمور",
+	"reports": "التقارير",
+	"messages": "الرسائل",
+
+	"courses": "الدروس",
+	"assignments": "الواجبات",
+	"grades": "الدرجات",
+	"student_progress": "تتبع التلميذ",
+	"contact_teacher": "اتصال بالأستاذ",
+	"attestation_request": "شهادات عند الطلب",
+	"view": "عرض",
+	"download": "تحميل",
+	"search": "بحث",
+	"shared_documents": "المستندات المشتركة",
+	"parent_meetings": "اجتماعات أولياء الأمور"
 }

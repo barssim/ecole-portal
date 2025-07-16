@@ -26,6 +26,10 @@ import Borrow from './pages/library/Borrow';
 import Rules from './pages/library/Rules';
 import Bibliotheque from './pages/Bibliotheque';
 import { Navigate } from "react-router-dom";
+import ClassesPage from './pages/ClassesPage';
+import AttestationsPage from './pages/AttestationsPage';
+import SharedDocumentsPage from "./pages/SharedDocumentsPage";
+import ParentMeetingPage from "./pages/ParentMeetingPage";
 
 
 const ProtectedRoute = ({ allowedRoles, children }) => {
@@ -111,28 +115,14 @@ useEffect(() => {
                                               >
 
                    <Routes>
-                     //<Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
-                     <Route
-                                            path="/finance/factures"
-                                            element={
-                                              <ProtectedRoute allowedRoles={["finance", "admin", "manager"]}>
-                                                <PostInvoice language={language} toggleLanguage={toggleLanguage} />
-                                              </ProtectedRoute>
-                                            }
-                                          />
+                     <Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
                      <Route path="/finance/paymentNotice" element={<SchoolInvoicePreview  language={language} toggleLanguage={toggleLanguage} />} />
-                    // <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
-                     <Route
-                       path="/finance/payments"
-                       element={
-                         <ProtectedRoute allowedRoles={["finance", "admin", "manager"]}>
-                           <Payments language={language} toggleLanguage={toggleLanguage} />
-                         </ProtectedRoute>
-                       }
-                     />
-
+                     <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
                      <Route path="/administration/presence" element={<ProfessorPresence language={language} toggleLanguage={toggleLanguage} />} />
+                     <Route path="/administration/classes" element={<ClassesPage language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/administration/examens" element={<ExamProgram language={language} toggleLanguage={toggleLanguage} />} />
+                      <Route path="/administration/attestations" element={<AttestationsPage language={language} toggleLanguage={toggleLanguage} />} />
+                      <Route path="/enseignement/parent-meetings" element={<ParentMeetingPage language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/services/bibliotheque" element={<Bibliotheque />} />
                       <Route path="/services/bibliotheque/catalogue" element={<Catalogue />} />
                       <Route path="/services/bibliotheque/emprunts" element={<Borrow />} />
