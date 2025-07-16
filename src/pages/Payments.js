@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { REST_API_GATEWAY_URL } from "../globals.js";
 import fr from "../locales/fr.json";
 import ar from "../locales/ar.json";
 import en from "../locales/en.json";
@@ -10,7 +9,7 @@ const Payments = ({ language }) => {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    axios.get(`${REST_API_GATEWAY_URL}api/payments`)
+    axios.get(`${process.env.REACT_APP_API_GATEWAY_URL}/api/payments`)
       .then(response => setPayments(response.data))
       .catch(error => console.error("Error fetching payments:", error));
   }, []);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { REST_API_GATEWAY_URL } from "../globals.js";
 import fr from "../locales/fr.json";
 import ar from "../locales/ar.json";
 import en from "../locales/en.json";
@@ -18,7 +17,7 @@ const SchoolInvoicePreview =  ({language}) => {
   const [invoice, setInvoice] = useState(null);
 
   useEffect(() => {
-    axios.get(REST_API_GATEWAY_URL + "api/paymentNotice")
+    axios.get(`${process.env.REACT_APP_API_GATEWAY_URL}/api/paymentNotice`)
       .then((response) => setInvoice(response.data))
       .catch((error) => console.error('API error:', error));
   }, []);

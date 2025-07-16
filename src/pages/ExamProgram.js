@@ -3,17 +3,20 @@ import axios from "axios";
 import fr from "../locales/fr.json";
 import en from "../locales/en.json";
 import ar from "../locales/ar.json";
-import { REST_API_GATEWAY_URL } from "../globals";
 
 const ExamProgram = ({ language }) => {
   const content = language === "fr" ? fr : language === "en" ? en : ar;
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+ console.log("Hallo Gateway",process.env.REACT_APP_API_GATEWAY_URL);
+ const roles = JSON.parse(localStorage.getItem("user_roles") || "[]");
+ console.log("User roles:", roles);
+ const token = sessionStorage.getItem("jwt_token");
+ console.log("Token:", token);
   useEffect(() => {
     axios
-      .get(`${REST_API_GATEWAY_URL}/api/exams`)
+      .get(`${process.env.REACT_APP_API_GATEWAY_URL}/api/exams`)
       .then((res) => setExams(res.data))
       .catch(() => setError(content.exam_error))
       .finally(() => setLoading(false));

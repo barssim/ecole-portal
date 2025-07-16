@@ -1,23 +1,24 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Logout = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
-    // Perform logout logic, such as clearing session, cookies, etc.
-    // For example, if you're using localStorage or sessionStorage:
-    localStorage.removeItem('isLoggedIn'); // remove authentication token
-    sessionStorage.removeItem('jwt_token'); // if stored in sessionStorage
-    // Redirect to login page after logout
-    navigate('/login');
- }, [navigate]);
+    // Clear user session
+    localStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("jwt_token");
+    localStorage.removeItem("user_roles");
+
+    // Optional: Show message briefly before redirect
+    const timer = setTimeout(() => {
+      window.location.href = "/login"; // full page reload
+    }, 1500); // 1.5-second delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div>
-      <h1>Logging out...</h1>
-      <p>You will be redirected to the login page shortly.</p>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-gray-700">
+      <h1 className="text-xl font-bold mb-2">Déconnexion...</h1>
+      <p>Redirection vers la page de connexion.</p>
     </div>
   );
 };

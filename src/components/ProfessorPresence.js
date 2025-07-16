@@ -3,7 +3,6 @@ import axios from "axios";
 import fr from "../locales/fr.json";
 import en from "../locales/en.json";
 import ar from "../locales/ar.json";
-import { REST_API_GATEWAY_URL } from "../globals.js";
 
 const ProfessorPresence = ({ language }) => {
   const content = language === "fr" ? fr : language === "en" ? en : ar;
@@ -15,7 +14,7 @@ const ProfessorPresence = ({ language }) => {
 
   useEffect(() => {
     axios
-      .get(`${REST_API_GATEWAY_URL}/api/presence/professors?date=${today}`)
+      .get(`${process.env.REACT_APP_API_GATEWAY_URL}/api/presence/professors`)
       .then((response) => setPresenceList(response.data))
       .catch(() => setError(content.presence_error))
       .finally(() => setLoading(false));

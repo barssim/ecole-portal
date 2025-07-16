@@ -5,23 +5,37 @@ import fr from "../locales/fr.json";
 import ar from "../locales/ar.json";
 import en from "../locales/en.json";
 
-
 const Home = ({ language }) => {
-  const [showActivites, setShowActivites] = useState(true); // default open
+  const [showActivites, setShowActivites] = useState(true);
+  const content = language === "fr" ? fr : language === "en" ? en : ar;
 
-  let content = language === "fr" ? fr : language === "en" ? en : ar;
+  const allowedRoles = ["finance", "admin", "manager"];
+  const userRoles = JSON.parse(localStorage.getItem("user_roles") || "[]");
+  const isAuthorized = allowedRoles.some(role => userRoles.includes(role));
 
   return (
-    <div className="menu space-y-4 p-6 bg-gray-50 min-h-screen" >
-      {/* Administration */}
-      <div>
+    <div className="menu space-y-4 p-6 bg-gray-50 min-h-screen">
+      {/* Administration Block - Role Restricted */}
+      <div
+        className={`space-y-4 p-6 rounded ${
+          isAuthorized
+            ? "bg-white text-gray-900"
+            : "bg-gray-300 text-gray-500 opacity-60 cursor-not-allowed"
+        }`}
+        style={{ pointerEvents: isAuthorized ? "auto" : "none" }}
+      >
         <Link
-          to="/administration"
-          className="block text-2xl bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold"
-
+          to={isAuthorized ? "/administration" : "#"}
+          className={`block text-2xl px-4 py-2 rounded-md font-semibold ${
+            isAuthorized
+              ? "bg-blue-600 hover:bg-blue-700 text-white"
+              : "bg-gray-400 text-gray-200 cursor-not-allowed"
+          }`}
+          style={{ pointerEvents: isAuthorized ? "auto" : "none" }}
         >
           {content.administration}
         </Link>
+
         <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
           <li>
             <Link
@@ -94,7 +108,7 @@ const Home = ({ language }) => {
         </ul>
       </div>
 
-      {/* Enseignement */}
+      {/* Enseignement Block */}
       <div>
         <Link
           to="/enseignement"
@@ -122,7 +136,7 @@ const Home = ({ language }) => {
         </ul>
       </div>
 
-      {/* Services */}
+      {/* Services Block */}
       <div>
         <Link
           to="/services"
@@ -174,7 +188,7 @@ const Home = ({ language }) => {
         </ul>
       </div>
 
-      {/* Finance */}
+      {/* Finance Block */}
       <div>
         <Link
           to="/finance"
@@ -200,17 +214,16 @@ const Home = ({ language }) => {
             </Link>
           </li>
           <li>
-                      <Link
-                        to="/finance/paymentNotice"
-                        className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
-                      >
-                        {content.Payment_Notice || "Payment Notice"}
-                      </Link>
-                    </li>
+            <Link
+              to="/finance/paymentNotice"
+              className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
+            >
+              {content.Payment_Notice || "Payment Notice"}
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
-
   );
 };
 

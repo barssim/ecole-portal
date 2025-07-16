@@ -25,12 +25,21 @@ import Catalogue from './pages/library/Catalogue';
 import Borrow from './pages/library/Borrow';
 import Rules from './pages/library/Rules';
 import Bibliotheque from './pages/Bibliotheque';
+import { Navigate } from "react-router-dom";
+
+
+const ProtectedRoute = ({ allowedRoles, children }) => {
+  const token = sessionStorage.getItem("jwt_token");
+  const roles = JSON.parse(localStorage.getItem("user_roles") || "[]");
+  const isAuthorized = allowedRoles.some(role => roles.includes(role));
+  if (!token) return <Navigate to="/login" replace />;
+  return isAuthorized ? children : <Navigate to="/unauthorized" replace />;
+};
 
 function App() {
 	const [language, setLanguage] = useState("fr"); // Track current language
 	let content;
 	const today = new Date().toISOString().split("T")[0];
-
 
 if (language === "fr") {
   content = fr;
@@ -46,6 +55,16 @@ if (language === "fr") {
         return "fr"; // from "en" back to "fr"
       });
     };
+useEffect(() => {
+  const token = sessionStorage.getItem("jwt_token");
+  if (!token) {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("LoggedIn");
+    localStorage.removeItem("user_roles");
+  }
+}, []);
+
+
 	return (
 		<Router>
 			<Header language={language} toggleLanguage={toggleLanguage}/>;
@@ -90,10 +109,28 @@ if (language === "fr") {
                                                   width: "100%"
                                                 }}
                                               >
+
                    <Routes>
-                     <Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
+                     //<Route path="/finance/factures" element={<PostInvoice language={language} toggleLanguage={toggleLanguage} />} />
+                     <Route
+                                            path="/finance/factures"
+                                            element={
+                                              <ProtectedRoute allowedRoles={["finance", "admin", "manager"]}>
+                                                <PostInvoice language={language} toggleLanguage={toggleLanguage} />
+                                              </ProtectedRoute>
+                                            }
+                                          />
                      <Route path="/finance/paymentNotice" element={<SchoolInvoicePreview  language={language} toggleLanguage={toggleLanguage} />} />
-                     <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
+                    // <Route path="/finance/payments" element={<Payments language={language} toggleLanguage={toggleLanguage} />} />
+                     <Route
+                       path="/finance/payments"
+                       element={
+                         <ProtectedRoute allowedRoles={["finance", "admin", "manager"]}>
+                           <Payments language={language} toggleLanguage={toggleLanguage} />
+                         </ProtectedRoute>
+                       }
+                     />
+
                      <Route path="/administration/presence" element={<ProfessorPresence language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/administration/examens" element={<ExamProgram language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/services/bibliotheque" element={<Bibliotheque />} />
