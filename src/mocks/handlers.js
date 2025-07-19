@@ -100,18 +100,48 @@ export const handlers = [
           user: {
             id: 1,
             username: 'admin',
-            roles: ['admin', 'manager']
+            roles: ['admin']
           }
         });
       }
+      if (username === 'manager' && password === 'managerpass') {
+              return HttpResponse.json({
+                token: 'mock-admin-token',
+                user: {
+                  id: 1,
+                  username: 'manager',
+                  roles: ['manager']
+                }
+              });
+            }
+        if (username === 'parent' && password === 'parentpass') {
+                    return HttpResponse.json({
+                      token: 'mock-admin-token',
+                      user: {
+                        id: 1,
+                        username: 'parent',
+                        roles: ['parent']
+                      }
+                    });
+                  }
+        if (username === 'teacher' && password === 'teacherpass') {
+                            return HttpResponse.json({
+                              token: 'mock-admin-token',
+                              user: {
+                                id: 1,
+                                username: 'teacher',
+                                roles: ['teacher']
+                              }
+                            });
+                          }
 
-      if (username === 'user' && password === 'userpass') {
+      if (username === 'student' && password === 'studentpass') {
         return HttpResponse.json({
           token: 'mock-user-token',
           user: {
             id: 2,
-            username: 'user',
-            roles: ['user']
+            username: 'student',
+            roles: ['student']
           }
         });
       }

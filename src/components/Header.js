@@ -8,7 +8,7 @@ import ecole from '../ecoleLoader';
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ language, toggleLanguage, cartItemCount }) => {
+const Header = ({ language, toggleLanguage }) => {
 	let content;
 
 if (language === "fr") {

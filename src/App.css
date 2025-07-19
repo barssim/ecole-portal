@@ -179,3 +179,20 @@
   border-radius: 4px;
   font-size: 16px;
 }
+/* App.css */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.left-panel, .right-panel {
+  background-color: #f7f9fc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.center-content {
+  padding: 1rem;
+}

@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ChatApp from './components/ChatApp';
 import PostInvoice from './components/PostInvoice';
-import Home from './pages/Home';
+import Menu from './pages/Menu';
 import About from './pages/About';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -73,22 +73,18 @@ useEffect(() => {
 	return (
 		<Router>
 			<Header language={language} toggleLanguage={toggleLanguage}/>;
-			<div style={{ display: "flex", alignItems: "center" }}>
+			<div style={{
+                     display: "flex",
+                     alignItems: "center",
+                     flexDirection: language === "ar" ? "row-reverse" : "row", }}>
 				{/* Left Menu */}
-				<div style={{ width: "15%", padding: "10px", textAlign: "left", borderRight: "1px solid #ccc" }}>
-					<Home language={language} toggleLanguage={toggleLanguage} />
+				<div className="left-panel">
+					<Menu language={language} toggleLanguage={toggleLanguage} />
 				</div>
 
 				{/* Right Content */}
 				<div
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "10px",
-                                    maxWidth: "800px",
-                                    margin: "0 auto",
-                                    width: "100%"
-                                  }}
+                                 className="center-content"
                                 >
 
                <div
@@ -138,11 +134,7 @@ useEffect(() => {
                  </div>
                 </div>
                <div
-                 style={{
-                   width: "15%",
-                   padding: "10px",
-                   textAlign: "center", // optional
-                 }}
+                 className="right-panel"
                >
                  <img
                    src={ecole.image}
