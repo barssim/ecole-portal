@@ -2,7 +2,7 @@
 	"whatWeDo":"مرحبًا بكم في بوابة ",
 	"whatYouFind": "تواصل مستمر على مدار الساعة مع الادارة وهيئة التدريس",
 	"administration": "الإدارة",
-	"enseignement": "التعليم",
+	"enseignant": "الأساتذة",
 	"services": "الخدمات",
 	"finance": "المالية",
 	"annonces": "الإعلانات",
@@ -87,7 +87,7 @@
 	"askSchoolAI": "اسأل الذكاء الاصطناعي الخاص بالمدرسة",
 	"submit": "ارسل",
 
-	"students": "الطلاب",
+	"students": "التلاميذ",
 	"grades": "الدرجات",
 	"schedule": "الجدول الزمني",
 	"parents": "أولياء الأمور",

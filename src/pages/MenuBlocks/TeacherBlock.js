@@ -5,24 +5,20 @@ import { Link } from "react-router-dom";
 const TeacherBlock = ({ isAuthorized, content }) => {
 const [showActivites, setShowActivites] = useState(false);
   return (
-     <div>
+     <div className="bg-white p-4 shadow-md rounded-md">
             <button
                          onClick={() => setShowActivites(!showActivites)}
                         disabled={!isAuthorized}
-                        className={`text-2xl px-4 py-2 rounded-md font-semibold ${
-                          isAuthorized
-                            ? "bg-blue-600 hover:bg-blue-700 text-white"
-                            : "bg-gray-400 text-gray-200 cursor-not-allowed"
-                        }`}
+                        className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
                       >
-                        {content.enseignement}
+                        {content.enseignant}
                       </button>
                     {showActivites && (
            <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
 
              <li>
                  <Link
-                   to="/enseignement/cours"
+                   to="/enseignant/cours"
                    className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
                  >
                    {content.courses}
@@ -30,7 +26,7 @@ const [showActivites, setShowActivites] = useState(false);
                </li>
                <li>
                  <Link
-                   to="/enseignement/devoirs"
+                   to="/enseignant/devoirs"
                    className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
                  >
                    {content.assignments}
@@ -38,7 +34,7 @@ const [showActivites, setShowActivites] = useState(false);
                </li>
                <li>
                  <Link
-                   to="/enseignement/notes"
+                   to="/enseignant/notes"
                    className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
                  >
                    {content.grades}
@@ -46,7 +42,7 @@ const [showActivites, setShowActivites] = useState(false);
                </li>
                <li>
                  <Link
-                   to="/enseignement/shared-documents"
+                   to="/enseignant/shared-documents"
                    className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
                  >
                    {content.shared_documents}
@@ -54,7 +50,7 @@ const [showActivites, setShowActivites] = useState(false);
                </li>
              <li>
                <Link
-                 to="/enseignement/parent-meetings"
+                 to="/enseignant/parent-meetings"
                  className="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded hover:bg-indigo-100 inline-block"
                >
                  {content.parent_meetings}
@@ -65,7 +61,7 @@ const [showActivites, setShowActivites] = useState(false);
            )}
          </div>
   );
-};
+}
 
 export default TeacherBlock;
 

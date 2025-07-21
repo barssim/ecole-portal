@@ -23,7 +23,7 @@ const AiChatBox = ({ language }) => {
 
   return (
     <div style={{ padding: "20px", maxWidth: "600px" }}>
-      <h2>{content.askSchoolAI}</h2>
+      <h4>{content.askSchoolAI}</h4>
       <textarea
         rows={4}
         value={prompt}

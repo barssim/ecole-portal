@@ -5,15 +5,11 @@ import { Link } from "react-router-dom";
 const ServicesBlock = ({ isAuthorized, content }) => {
 const [showActivites, setShowActivites] = useState(false);
   return (
-     <div>
+     <div className="bg-white p-4 shadow-md rounded-md">
             <button
                          onClick={() => setShowActivites(!showActivites)}
                         disabled={!isAuthorized}
-                        className={`text-2xl px-4 py-2 rounded-md font-semibold ${
-                          isAuthorized
-                            ? "bg-blue-600 hover:bg-blue-700 text-white"
-                            : "bg-gray-400 text-gray-200 cursor-not-allowed"
-                        }`}
+                       className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
                       >
                         {content.services}
                       </button>
@@ -55,7 +51,7 @@ const [showActivites, setShowActivites] = useState(false);
             )}
           </div>
   );
-};
+}
 
 export default ServicesBlock;
 

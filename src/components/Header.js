@@ -48,7 +48,7 @@ if (language === "fr") {
 			{/* Navigation Links */}
 			<nav style={{ display: "flex", gap: "15px" }}>
 				<a href="/Home" className="linkStyle">{content.home}</a>
-				<a href="/about" className="linkStyle">{content.about}</a>
+				<a href="/about" className="linkStyle" dir={language === "ar" ? "rtl" : "ltr"}>{content.about}</a>
 				<a href="/contact" className="linkStyle">{content.contact}</a>
 			</nav>
 

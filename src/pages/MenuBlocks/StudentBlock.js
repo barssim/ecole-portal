@@ -5,15 +5,11 @@ import { Link } from "react-router-dom";
 const StudentBlock = ({ isAuthorized, content }) => {
 const [showActivites, setShowActivites] = useState(false);
   return (
-     <div>
+     <div className="bg-white p-4 shadow-md rounded-md">
             <button
                          onClick={() => setShowActivites(!showActivites)}
                         disabled={!isAuthorized}
-                        className={`text-2xl px-4 py-2 rounded-md font-semibold ${
-                          isAuthorized
-                            ? "bg-blue-600 hover:bg-blue-700 text-white"
-                            : "bg-gray-400 text-gray-200 cursor-not-allowed"
-                        }`}
+                       className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
                       >
                         {content.students}
                       </button>
@@ -30,7 +26,7 @@ const [showActivites, setShowActivites] = useState(false);
               <li>
                 <Link
                   to="/students/schedule"
-                  className="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded hover:bg-yellow-200 inline-block"
+                  className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
                 >
                   {content.schedule || "Schedule"}
                 </Link>
@@ -39,7 +35,7 @@ const [showActivites, setShowActivites] = useState(false);
             )}
           </div>
   );
-};
+}
 
 export default StudentBlock;
 

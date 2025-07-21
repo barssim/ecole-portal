@@ -62,12 +62,14 @@ const Contact = ({ language }) => {
   );
 };
 
-// 🎨 Stildefinitionen
 const containerStyle = {
   padding: "40px",
-  maxWidth: "1000px",
-  margin: "auto",
+  width: "fit-content",         // Shrinks or grows to fit content width
+  height: "auto",               // Grows vertically based on content
+  margin: "auto",               // Centers the container if used inside a flex or block layout
+  boxSizing: "border-box",      // Includes padding in total size
 };
+
 
 const headingStyle = {
   textAlign: "center",

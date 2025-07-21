@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
 import fr from "../locales/fr.json";
 import ar from "../locales/ar.json";
@@ -11,7 +9,7 @@ import ParentBlock from "./MenuBlocks/ParentBlock";
 import FinanceBlock from "./MenuBlocks/FinanceBlock";
 import ServicesBlock from "./MenuBlocks/ServicesBlock";
 
-const Home = ({ language }) => {
+const Menu = ({ language }) => {
   const content = language === "fr" ? fr : language === "en" ? en : ar;
   const userRoles = JSON.parse(localStorage.getItem("user_roles") || "[]");
   const adminRoles = ["admin", "manager"];
@@ -32,26 +30,17 @@ const Home = ({ language }) => {
             const isServicesAuthorized = servicesRoles.some(role => userRoles.includes(role));
 
   return (
-    <div className="menu space-y-4 p-6 bg-gray-50 min-h-screen">
-      {/* Administration Block - Role Restricted */}
-        <AdminBlock isAuthorized={isAdminAuthorized} content={content}/>
-
-      {/* Enseignement Block */}
-        <TeacherBlock isAuthorized={isTeacherAuthorized} content={content}/>
-      {/* Students Section */}
-         <StudentBlock isAuthorized={isStudentAuthorized} content={content}/>
-
-      {/* Parents Section */}
-          <ParentBlock isAuthorized={isParentAuthorized} content={content}/>
-
-      {/* Services Block */}
-        <ServicesBlock isAuthorized={isServicesAuthorized} content={content}/>
-
-      {/* Finance Block */}
-        <FinanceBlock isAuthorized={isFinanceAuthorized} content={content}/>
+    <div className="menu space-y-4 p-6 bg-sky-200 min-h-screen">
+        <AdminBlock isAuthorized={isAdminAuthorized} content={content} />
+        <TeacherBlock isAuthorized={isTeacherAuthorized} content={content} />
+        <StudentBlock isAuthorized={isStudentAuthorized} content={content} />
+        <ParentBlock isAuthorized={isParentAuthorized} content={content} />
+        <ServicesBlock isAuthorized={isServicesAuthorized} content={content} />
+        <FinanceBlock isAuthorized={isFinanceAuthorized} content={content} />
     </div>
+
   );
 };
 
-export default Home;
+export default Menu;
 

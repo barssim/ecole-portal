@@ -9,7 +9,6 @@ const ExamProgram = ({ language }) => {
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
- console.log("Hallo Gateway",process.env.REACT_APP_API_GATEWAY_URL);
  const roles = JSON.parse(localStorage.getItem("user_roles") || "[]");
  console.log("User roles:", roles);
  const token = sessionStorage.getItem("jwt_token");

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import fr from "../locales/fr.json";
 import en from "../locales/en.json";
 import ar from "../locales/ar.json";
 
 const StudentSchedulePage = ({ language }) => {
   const content = language === "fr" ? fr : language === "en" ? en : ar;
+    const [loading, setLoading] = useState(true);
   const schedule = [
     { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
     { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] },
@@ -14,8 +15,6 @@ const StudentSchedulePage = ({ language }) => {
   ];
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
-     <h2 className="text-2xl font-bold">{content.schedule_page_title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {schedule.map((dayPlan, index) => (
           <div key={index} className="bg-gray-100 p-4 rounded shadow">
@@ -28,7 +27,6 @@ const StudentSchedulePage = ({ language }) => {
           </div>
         ))}
       </div>
-    </div>
   );
 };
 

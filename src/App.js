@@ -30,7 +30,7 @@ import ClassesPage from './pages/ClassesPage';
 import AttestationsPage from './pages/AttestationsPage';
 import SharedDocumentsPage from "./pages/SharedDocumentsPage";
 import ParentMeetingPage from "./pages/ParentMeetingPage";
-import StudentSchedulePage from "./pages/StudentSchedulePage";
+import StudentSchedulePage from "./components/StudentSchedulePage";
 
 
 const ProtectedRoute = ({ allowedRoles, children }) => {
@@ -72,7 +72,7 @@ useEffect(() => {
 
 	return (
 		<Router>
-			<Header language={language} toggleLanguage={toggleLanguage}/>;
+			<Header language={language} toggleLanguage={toggleLanguage}/>
 			<div style={{
                      display: "flex",
                      alignItems: "center",
@@ -87,6 +87,7 @@ useEffect(() => {
                                  className="center-content"
                                 >
 
+
                <div
                                style={{
                                  width: "fit-content",
@@ -95,11 +96,14 @@ useEffect(() => {
                                  alignItems: "center",
                                }}
                              >
-                   <h1>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
-                   <h4>{content.whatYouFind}</h4>
+                   <h1 style={{ color: "blue" }}>{content.whatWeDo}{ecole.name[language] || ecole.name["fr"]}</h1>
 
                  </div>
-
+<div className="bounce-container">
+  <div className="bounce-content">
+    <h4 style={{ color: "#00BBFF" }}>{content.whatYouFind}</h4>
+    <img src={ecole.logo} width="100" />
+  </div>
               	<div
                                                 style={{
                                                   display: "flex",
@@ -133,6 +137,8 @@ useEffect(() => {
                    </Routes>
                  </div>
                 </div>
+</div>
+
                <div
                  className="right-panel"
                >
@@ -143,7 +149,6 @@ useEffect(() => {
                  />
 </div>
 			</div>
-
 			<br />
 			<ChatApp language={language} toggleLanguage={toggleLanguage} />
 			<Footer language={language} toggleLanguage={toggleLanguage} />

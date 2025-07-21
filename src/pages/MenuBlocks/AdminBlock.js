@@ -6,22 +6,11 @@ const AdminBlock = ({ isAuthorized, content }) => {
   const [showActivites, setShowActivites] = useState(false);
 
   return (
-    <div
-      className={`space-y-4 p-6 rounded ${
-        isAuthorized
-          ? "bg-white text-gray-900"
-          : "bg-gray-300 text-gray-500 opacity-60 cursor-not-allowed"
-      }`}
-      style={{ pointerEvents: isAuthorized ? "auto" : "none" }}
-    >
+   <div className="bg-white p-4 shadow-md rounded-md">
        <button
              onClick={() => setShowActivites(!showActivites)}
             disabled={!isAuthorized}
-            className={`text-2xl px-4 py-2 rounded-md font-semibold ${
-              isAuthorized
-                ? "bg-blue-600 hover:bg-blue-700 text-white"
-                : "bg-gray-400 text-gray-200 cursor-not-allowed"
-            }`}
+            className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
           >
             {content.administration}
           </button>
@@ -104,10 +93,10 @@ const AdminBlock = ({ isAuthorized, content }) => {
           )}
         </li>
       </ul>
-      )};
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default AdminBlock;
+export default AdminBlock
 
