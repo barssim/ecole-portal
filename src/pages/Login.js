@@ -36,6 +36,7 @@ if (language === "fr") {
 				// Store the login status in localStorage
 				localStorage.setItem("isLoggedIn", "true");
 				localStorage.setItem("LoggedIn", user.username);
+				localStorage.setItem("userId", user.id);
 				// Store user roles
                 localStorage.setItem("user_roles", JSON.stringify(user.roles));
 				// Set login status to true in the state

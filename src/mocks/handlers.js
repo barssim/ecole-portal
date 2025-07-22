@@ -111,16 +111,28 @@ export const handlers = [
     ]);
     }),
 
-   // 🧪 Handler for classes
-      http.get(`${BASE_URL}/api/studentschedule`, () => {
-        return HttpResponse.json([
-  { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
-     { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] },
-     { day: "Wednesday", slots: ["Chemistry - 08:30", "Arabic - 10:30", "Arts - 14:00"] },
-     { day: "Thursday", slots: ["Geography - 09:00", "Ethics - 11:30", "Coding - 16:00"] },
-     { day: "Friday", slots: ["French - 08:00", "Economics - 10:30", "Club Hour - 13:30"] }
-      ]);
- }),
+// 🧪 Handler for schedule
+http.get(`${BASE_URL}/api/studentschedule`, () => {
+  const userId = localStorage.getItem("userId");
+
+  const userSchedules = {
+    "5": [
+      { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
+      { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] }
+    ],
+    "6": [
+      { day: "Wednesday", slots: ["Chemistry - 08:30", "Arabic - 10:30", "Arts - 14:00"] },
+      { day: "Thursday", slots: ["Geography - 09:00", "Ethics - 11:30", "Coding - 16:00"] }
+    ],
+    "7": [
+      { day: "Friday", slots: ["French - 08:00", "Economics - 10:30", "Club Hour - 13:30"] }
+    ]
+  };
+
+  const schedule = userSchedules[userId] || [];
+
+  return HttpResponse.json(schedule);
+}),
 
  // 🧪 Handler for attestations
     http.get(`${BASE_URL}/api/attestations`, () => {
@@ -140,7 +152,7 @@ export const handlers = [
         return HttpResponse.json({
           token: 'mock-admin-token',
           user: {
-            id: 1,
+            id: 2,
             username: 'admin',
             roles: ['admin']
           }
@@ -160,7 +172,7 @@ export const handlers = [
                     return HttpResponse.json({
                       token: 'mock-admin-token',
                       user: {
-                        id: 1,
+                        id: 3,
                         username: 'parent',
                         roles: ['parent']
                       }
@@ -170,24 +182,43 @@ export const handlers = [
                             return HttpResponse.json({
                               token: 'mock-admin-token',
                               user: {
-                                id: 1,
+                                id: 4,
                                 username: 'teacher',
                                 roles: ['teacher']
                               }
                             });
                           }
 
-      if (username === 'student' && password === 'studentpass') {
+      if (username === 'Assil' && password === 'assil') {
         return HttpResponse.json({
           token: 'mock-user-token',
           user: {
-            id: 2,
-            username: 'student',
+            id: 5,
+            username: 'Assil',
             roles: ['student']
           }
         });
       }
-
+       if (username === 'Barae' && password === 'barae') {
+              return HttpResponse.json({
+                token: 'mock-user-token',
+                user: {
+                  id: 6,
+                  username: 'Barae',
+                  roles: ['student']
+                }
+              });
+            }
+       if (username === 'Tasnim' && password === 'tasnim') {
+                     return HttpResponse.json({
+                       token: 'mock-user-token',
+                       user: {
+                         id: 7,
+                         username: 'Tasnim',
+                         roles: ['student']
+                       }
+                     });
+                   }
       return new HttpResponse(null, { status: 401 });
     }),
 

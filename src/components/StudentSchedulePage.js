@@ -11,12 +11,13 @@ const StudentSchedulePage = ({ language }) => {
 
   const [schedule, setSchedule] = useState([]);
   const [loading, setLoading] = useState(true);
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     const fetchSchedule = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_GATEWAY_URL}/api/studentschedule`
+          `${process.env.REACT_APP_API_GATEWAY_URL}/api/studentschedule?user=${userId}`
         );
         const data = await response.json();
         setSchedule(data);
