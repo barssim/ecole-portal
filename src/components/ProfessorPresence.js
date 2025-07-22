@@ -13,11 +13,14 @@ const ProfessorPresence = ({ language }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+   try {
     axios
       .get(`${process.env.REACT_APP_API_GATEWAY_URL}/api/presence/professors`)
       .then((response) => setPresenceList(response.data))
-      .catch(() => setError(content.presence_error))
       .finally(() => setLoading(false));
+       } catch (error) {
+              console.error(content.presence_error);
+       }
   }, []);
 
   const renderStatus = (status) => {
@@ -66,8 +69,8 @@ const ProfessorPresence = ({ language }) => {
       ) : presenceList.length === 0 ? (
         <p className="text-gray-500">{content.presence_empty}</p>
       ) : (
-       <table className="w-full text-sm border-separate border-spacing-y-1">
-         <thead className="bg-blue-100 sticky top-0 shadow-sm z-10">
+       <table  dir={language === 'ar' ? 'rtl' : 'ltr'} className="w-full text-sm border-separate border-spacing-y-1">
+         <thead  className="bg-blue-100 sticky top-0 shadow-sm z-10">
            <tr>
              <th className="px-4 py-2 text-left rounded-tl-md">{content.presence_name}</th>
              <th className="px-4 py-2 text-left">{content.presence_scheduled}</th>

@@ -126,7 +126,15 @@
 	"attestation_searchPlaceholder": "🔍 Rechercher une attestation...",
 	"attestation_viewButton": "👁 Voir",
 	"attestation_downloadButton": "⬇ Télécharger",
-	"attestation_noResults": "Aucune attestation trouvée."
+	"attestation_noResults": "Aucune attestation trouvée.",
+
+	"schedule_title": "📅 Emploi du temps de l'élève",
+	"schedule_noData": "Aucun emploi du temps disponible.",
+	"schedule_monday": "Lundi",
+	"schedule_tuesday": "Mardi",
+	"schedule_wednesday": "Mercredi",
+	"schedule_thursday": "Jeudi",
+	"schedule_friday": "Vendredi"
 
 
 }

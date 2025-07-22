@@ -111,6 +111,17 @@ export const handlers = [
     ]);
     }),
 
+   // 🧪 Handler for classes
+      http.get(`${BASE_URL}/api/studentschedule`, () => {
+        return HttpResponse.json([
+  { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
+     { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] },
+     { day: "Wednesday", slots: ["Chemistry - 08:30", "Arabic - 10:30", "Arts - 14:00"] },
+     { day: "Thursday", slots: ["Geography - 09:00", "Ethics - 11:30", "Coding - 16:00"] },
+     { day: "Friday", slots: ["French - 08:00", "Economics - 10:30", "Club Hour - 13:30"] }
+      ]);
+ }),
+
  // 🧪 Handler for attestations
     http.get(`${BASE_URL}/api/attestations`, () => {
       return HttpResponse.json([

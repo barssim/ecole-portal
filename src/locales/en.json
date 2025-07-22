@@ -114,5 +114,13 @@
   "attestation_searchPlaceholder": "🔍 Search for an attestation...",
   "attestation_viewButton": "👁 View",
   "attestation_downloadButton": "⬇ Download",
-  "attestation_noResults": "No attestations found."
+  "attestation_noResults": "No attestations found.",
+
+  "schedule_title": "📅 Student Schedule",
+  "schedule_noData": "No schedule available.",
+  "schedule_monday": "Monday",
+  "schedule_tuesday": "Tuesday",
+  "schedule_wednesday": "Wednesday",
+  "schedule_thursday": "Thursday",
+  "schedule_friday": "Friday"
 }

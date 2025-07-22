@@ -125,5 +125,13 @@
 	"attestation_searchPlaceholder": "🔍 ابحث عن شهادة...",
 	"attestation_viewButton": "👁 عرض",
 	"attestation_downloadButton": "⬇ تنزيل",
-	"attestation_noResults": "لم يتم العثور على شهادات."
+	"attestation_noResults": "لم يتم العثور على شهادات.",
+
+	"schedule_title": "📅 جدول الطالب",
+	"schedule_noData": "لا يوجد جدول متاح.",
+	"schedule_monday": "الاثنين",
+	"schedule_tuesday": "الثلاثاء",
+	"schedule_wednesday": "الأربعاء",
+	"schedule_thursday": "الخميس",
+	"schedule_friday": "الجمعة"
 }

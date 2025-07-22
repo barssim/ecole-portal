@@ -4,29 +4,63 @@ import en from "../locales/en.json";
 import ar from "../locales/ar.json";
 
 const StudentSchedulePage = ({ language }) => {
-  const content = language === "fr" ? fr : language === "en" ? en : ar;
-    const [loading, setLoading] = useState(true);
-  const schedule = [
-    { day: "Monday", slots: ["Math - 08:00", "Physics - 10:00", "English - 13:00"] },
-    { day: "Tuesday", slots: ["Biology - 09:00", "History - 11:00", "Sport - 15:00"] },
-    { day: "Wednesday", slots: ["Chemistry - 08:30", "Arabic - 10:30", "Arts - 14:00"] },
-    { day: "Thursday", slots: ["Geography - 09:00", "Ethics - 11:30", "Coding - 16:00"] },
-    { day: "Friday", slots: ["French - 08:00", "Economics - 10:30", "Club Hour - 13:30"] }
-  ];
+  const content =
+    language === "fr" ? fr :
+    language === "en" ? en :
+    ar;
+
+  const [schedule, setSchedule] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_GATEWAY_URL}/api/studentschedule`
+        );
+        const data = await response.json();
+        setSchedule(data);
+      } catch (error) {
+        console.error("Failed to fetch student schedule:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSchedule();
+  }, []);
+
+  const getTranslatedDay = (dayKey) =>
+    content[`schedule_${dayKey.toLowerCase()}`] || dayKey;
 
   return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {schedule.map((dayPlan, index) => (
-          <div key={index} className="bg-gray-100 p-4 rounded shadow">
-            <h3 className="font-semibold text-lg mb-2">{dayPlan.day}</h3>
-            <ul className="list-disc list-inside space-y-1 text-sm">
-              {dayPlan.slots.map((slot, i) => (
-                <li key={i}>{slot}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+    <div className="p-6 max-w-6xl mx-auto space-y-6">
+      <h2 className="text-2xl font-bold">{content.schedule_title}</h2>
+
+      {loading ? (
+        <p className="italic text-gray-500">Loading...</p>
+      ) : schedule.length === 0 ? (
+        <p className="italic text-gray-500">{content.schedule_noData}</p>
+      ) : (
+        <div className="flex gap-4 overflow-x-auto py-2">
+          {schedule.map((dayPlan, index) => (
+            <div
+              key={index}
+              className="min-w-[16rem] bg-gray-100 p-4 rounded shadow flex-shrink-0"
+            >
+              <h3 className="font-semibold text-lg mb-2">
+                {getTranslatedDay(dayPlan.day)}
+              </h3>
+              <ul className="list-disc list-inside space-y-1 text-sm">
+                {dayPlan.slots.map((slot, i) => (
+                  <li key={i}>{slot}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
