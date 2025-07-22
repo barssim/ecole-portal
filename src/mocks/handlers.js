@@ -90,6 +90,37 @@ export const handlers = [
     ]);
   }),
 
+   // 🧪 Handler for classes
+    http.get(`${BASE_URL}/api/classes`, () => {
+      return HttpResponse.json([
+      {
+        id: 1,
+        name: "3e A",
+        students: ["Yassine", "Majda", "Karim"]
+      },
+      {
+        id: 2,
+        name: "3e B",
+        students: ["Sara", "Nabil", "Omar"]
+      },
+      {
+        id: 3,
+        name: "Terminale C",
+        students: ["Lina", "Mohamed", "Hajar"]
+      }
+    ]);
+    }),
+
+ // 🧪 Handler for attestations
+    http.get(`${BASE_URL}/api/attestations`, () => {
+      return HttpResponse.json([
+      { id: 1, title: "Attestation de scolarité", date: "2024-09-01" },
+         { id: 2, title: "Attestation de présence", date: "2025-01-15" },
+         { id: 3, title: "Attestation d’inscription", date: "2025-03-22" }
+       ]);
+    }),
+
+
     // 🔐 Handler for login authentication with roles
     http.post(`${BASE_URL}/api/auth/login`, async ({ request }) => {
       const { username, password } = await request.json();

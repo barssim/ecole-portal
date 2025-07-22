@@ -25,6 +25,7 @@ import Catalogue from './pages/library/Catalogue';
 import Borrow from './pages/library/Borrow';
 import Rules from './pages/library/Rules';
 import Bibliotheque from './pages/Bibliotheque';
+import InscriptionForm from './pages/InscriptionForm';
 import { Navigate } from "react-router-dom";
 import ClassesPage from './pages/ClassesPage';
 import AttestationsPage from './pages/AttestationsPage';
@@ -134,6 +135,7 @@ useEffect(() => {
 				      <Route path="/inscription" element={<Inscription language={language} toggleLanguage={toggleLanguage} />} />
 				      <Route path="/contact" element={<Contact language={language} toggleLanguage={toggleLanguage} />} />
 				      <Route path="/students/schedule" element={<StudentSchedulePage language={language} toggleLanguage={toggleLanguage} />} />
+				       <Route path="/parents/inscription" element={<InscriptionForm  isAuthorized={true} language={language} toggleLanguage={toggleLanguage} />} />
                    </Routes>
                  </div>
                 </div>

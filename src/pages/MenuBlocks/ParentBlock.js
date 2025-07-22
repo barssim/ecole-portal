@@ -16,6 +16,14 @@ const [showActivites, setShowActivites] = useState(false);
             </button>
             {showActivites && (
             <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
+             <li>
+                                      <Link
+                                        to="/parents/inscription"
+                                        className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
+                                      >
+                                        {content.inscription || "Inscription"}
+                                      </Link>
+                                    </li>
               <li>
                           <Link
                             to="/parents/presence"

@@ -59,7 +59,19 @@
 
 .buttonStyle {
 	background-color: #007bff;
-	color: #ffffff;
+	color: #fff;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+.buttonStyle-inactive {
+	background-color: #F0F0F0;
+	color: #999;
 	padding: 10px 15px;
 	border: none;
 	border-radius: 5px;

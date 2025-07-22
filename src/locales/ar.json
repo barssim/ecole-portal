@@ -105,5 +105,25 @@
 	"search": "بحث",
 	"shared_documents": "المستندات المشتركة",
 	"parent_meetings": "اجتماعات أولياء الأمور",
-	"schedule_page_title": "جدول الحصص"
+	"schedule_page_title": "جدول الحصص",
+
+	"title": "تسجيل المدرسة",
+	"name": "اسم الطالب",
+	"birth": "تاريخ الميلاد",
+	"class": "المستوى الدراسي",
+	"contact": "اتصال الوالد",
+
+	"classes_title": "قائمة الفصول",
+	"classes_showStudents": "👥 عرض الطلاب",
+	"classes_hideStudents": "➖ إخفاء الطلاب",
+	"classes_addStudent": "➕ إضافة طالب",
+	"classes_editClass": "✏️ تعديل الفصل",
+	"classes_removeClass": "🗑 إزالة الفصل",
+	"classes_noStudents": "لم يتم إضافة طلاب بعد.",
+
+	"attestation_title": "📄 الشهادات حسب الطلب",
+	"attestation_searchPlaceholder": "🔍 ابحث عن شهادة...",
+	"attestation_viewButton": "👁 عرض",
+	"attestation_downloadButton": "⬇ تنزيل",
+	"attestation_noResults": "لم يتم العثور على شهادات."
 }

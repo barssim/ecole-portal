@@ -106,6 +106,27 @@
 	"search": "Rechercher",
 	"shared_documents": "Documents partagés",
 	"parent_meetings": "Réunions avec les parents",
-	"schedule_page_title": "Emploi du temps"
+	"schedule_page_title": "Emploi du temps",
+
+	"title": "Inscription à l'école",
+	"name": "Nom de l'élève",
+	"birth": "Date de naissance",
+	"class": "Niveau de classe",
+	"contact": "Contact du parent",
+
+	"classes_title": "Liste des classes",
+	"classes_showStudents": "👥 Voir les élèves",
+	"classes_hideStudents": "➖ Masquer les élèves",
+	"classes_addStudent": "➕ Ajouter un élève",
+	"classes_editClass": "✏️ Modifier la classe",
+	"classes_removeClass": "🗑 Supprimer la classe",
+	"classes_noStudents": "Aucun élève ajouté pour le moment.",
+
+	"attestation_title": "📄 Attestations sur demande",
+	"attestation_searchPlaceholder": "🔍 Rechercher une attestation...",
+	"attestation_viewButton": "👁 Voir",
+	"attestation_downloadButton": "⬇ Télécharger",
+	"attestation_noResults": "Aucune attestation trouvée."
+
 
 }

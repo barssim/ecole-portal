@@ -94,6 +94,25 @@
   "search": "Search",
   "shared_documents": "Shared Documents",
   "parent_meetings": "Parent Meetings",
-  "schedule_page_title": "Schedule Plan"
+  "schedule_page_title": "Schedule Plan",
 
+  "title": "Inscription à l'école",
+  "name": "Nom de l'élève",
+  "birth": "Date de naissance",
+  "class": "Niveau de classe",
+  "contact": "Contact du parent",
+
+  "classes_title": "Class List",
+  "classes_showStudents": "👥 Show Students",
+  "classes_hideStudents": "➖ Hide Students",
+  "classes_addStudent": "➕ Add Student",
+  "classes_editClass": "✏️ Edit Class",
+  "classes_removeClass": "🗑 Remove Class",
+  "classes_noStudents": "No students added yet.",
+
+  "attestation_title": "📄 Requested Attestations",
+  "attestation_searchPlaceholder": "🔍 Search for an attestation...",
+  "attestation_viewButton": "👁 View",
+  "attestation_downloadButton": "⬇ Download",
+  "attestation_noResults": "No attestations found."
 }

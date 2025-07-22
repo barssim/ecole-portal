@@ -21,6 +21,9 @@ if (language === "fr") {
 	const navigate = useNavigate();
 	const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 	const loggedIn = localStorage.getItem("LoggedIn");
+	  const userRoles = JSON.parse(localStorage.getItem("user_roles") || "[]");
+      const adminRoles = ["manager"];
+      const isAdminAuthorized = adminRoles.some(role => userRoles.includes(role));
 	return (
 		<header
 			style={{
@@ -29,7 +32,7 @@ if (language === "fr") {
 				alignItems: "center",
 				padding: "10px 20px",
 				boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-				backgroundColor: "#ffffff",
+				backgroundColor: "#80DFFF",
 			}}
 		>
 			{/* Logo Section */}
@@ -63,11 +66,11 @@ if (language === "fr") {
 				<button className="buttonStyle" onClick={() => (window.location.href = isLoggedIn ? "/logout" : "/login")}>
 					{isLoggedIn ? content.logout : content.login}
 				</button>
-				{!isLoggedIn && (
+				{isLoggedIn && isAdminAuthorized && (
 					<button
-						className="buttonStyle"
-						onClick={() => (window.location.href = "/inscription")}
-					>
+                      className={"buttonStyle"}
+                      onClick={() => window.location.href = "/inscription"}
+                    >
 						{content.inscription}
 					</button>
 				)}

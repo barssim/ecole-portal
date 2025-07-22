@@ -18,14 +18,6 @@ const AdminBlock = ({ isAuthorized, content }) => {
       <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
         <li>
           <Link
-            to="/administration/inscription"
-            className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded hover:bg-blue-200 inline-block"
-          >
-            {content.inscription}
-          </Link>
-        </li>
-        <li>
-          <Link
             to="/administration/classes"
             className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded hover:bg-blue-200 inline-block"
           >
