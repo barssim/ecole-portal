@@ -110,6 +110,41 @@ export const handlers = [
       }
     ]);
     }),
+    // 🧪 Handler for teacher courses
+    http.get(`${BASE_URL}/api/teachercourses`, () => {
+    const userId = localStorage.getItem("userId");
+    const teachercourses = {
+    "8": [
+      {
+        "name": "l'Algèbre",
+        "language": "Les nombres rationels",
+        "schedule": "Lundi - 08:00"
+      },
+      {
+        "name": "La Geométrie",
+        "language": "le calcul des surfaces",
+        "schedule": "Mercredi - 10:30"
+      }
+    ],
+    "9": [
+          {
+            "name": "Grammaire",
+            "language": "l'adjectiv qualificatif ",
+            "schedule": "Lundi - 08:00"
+          },
+          {
+            "name": "la conjugaison",
+            "language": "le passé simple",
+            "schedule": "Mercredi - 10:30"
+          }
+        ]
+     };
+
+     const course = teachercourses[userId] || [];
+
+     return HttpResponse.json(course);
+   }),
+
 
 // 🧪 Handler for schedule
 http.get(`${BASE_URL}/api/studentschedule`, () => {
@@ -219,6 +254,26 @@ http.get(`${BASE_URL}/api/studentschedule`, () => {
                        }
                      });
                    }
+                    if (username === 'Prof' && password === 'prof') {
+                           return HttpResponse.json({
+                             token: 'mock-user-token',
+                             user: {
+                               id: 8,
+                               username: 'Prof',
+                               roles: ['teacher']
+                             }
+                           });
+                         }
+                          if (username === 'Salhi' && password === 'salhi') {
+                                                    return HttpResponse.json({
+                                                      token: 'mock-user-token',
+                                                      user: {
+                                                        id: 9,
+                                                        username: 'Salhi',
+                                                        roles: ['teacher']
+                                                      }
+                                                    });
+                                                  }
       return new HttpResponse(null, { status: 401 });
     }),
 
