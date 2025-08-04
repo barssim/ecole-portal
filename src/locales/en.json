@@ -122,5 +122,15 @@
   "schedule_tuesday": "Tuesday",
   "schedule_wednesday": "Wednesday",
   "schedule_thursday": "Thursday",
-  "schedule_friday": "Friday"
+  "schedule_friday": "Friday",
+
+  "course_title": "Upload Course Material",
+  "course_select_file": "Select a file",
+  "course_upload_button": "Start upload",
+  "course_success": "Upload successful!",
+  "course_error": "Upload failed.",
+  "student_schedule": "Time schedule",
+  "student_exercices": "Exercices",
+  "student_chat": "Chat",
+  "teacher_absence": "Absence"
 }

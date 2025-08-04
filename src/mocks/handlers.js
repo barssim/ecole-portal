@@ -276,6 +276,18 @@ http.get(`${BASE_URL}/api/studentschedule`, () => {
                                                   }
       return new HttpResponse(null, { status: 401 });
     }),
+http.post("/api/upload", async ({ request }) => {
+    const formData = await request.formData();
+    const file = formData.get("file");
 
+    if (!file) {
+      return new HttpResponse("Missing file", { status: 400 });
+    }
+
+    return HttpResponse.json({
+      filename: file.name,
+      url: `/uploads/${file.name}`,
+    });
+  }),
 
 ];

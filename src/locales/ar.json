@@ -133,5 +133,16 @@
 	"schedule_tuesday": "الثلاثاء",
 	"schedule_wednesday": "الأربعاء",
 	"schedule_thursday": "الخميس",
-	"schedule_friday": "الجمعة"
+	"schedule_friday": "الجمعة",
+
+	"course_title": "تحميل مادة",
+	"course_select_file": "اختر ملفًا",
+	"course_upload_button": "ابدأ التحميل",
+	"course_success": "تم التحميل بنجاح!",
+	"course_error": "فشل التحميل.",
+
+	"student_schedule": "استعمال الزمان",
+	"student_exercices": "االتمارين",
+	"student_chat": "الدردشة",
+	"teacher_absence": "االغياب"
 }

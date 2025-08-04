@@ -134,7 +134,17 @@
 	"schedule_tuesday": "Mardi",
 	"schedule_wednesday": "Mercredi",
 	"schedule_thursday": "Jeudi",
-	"schedule_friday": "Vendredi"
+	"schedule_friday": "Vendredi",
+
+	"course_title": "Téléchargement du matériel de cours",
+	"course_select_file": "Sélectionner un fichier",
+	"course_upload_button": "Commencer le téléchargement",
+	"course_success": "téléchargement réussi!",
+	"course_error": "Échec du téléchargement.",
+	"student_schedule": "Emploi du temps",
+	"student_exercices": "Exercices",
+	"student_chat": "Chat",
+	"teacher_absence": "Absence"
 
 
 }

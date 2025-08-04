@@ -28,9 +28,25 @@ const [showActivites, setShowActivites] = useState(false);
                   to="/students/schedule"
                   className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
                 >
-                  {content.schedule || "Schedule"}
+                  {content.student_schedule || "Schedule"}
                 </Link>
               </li>
+             <li>
+                            <Link
+                              to="/students/exercices"
+                              className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
+                            >
+                              {content.student_exercices || "Exercices"}
+                            </Link>
+                          </li>
+   <li>
+                  <Link
+                    to="/students/chat"
+                    className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded hover:bg-green-200 inline-block"
+                  >
+                    {content.student_chat || "Chat"}
+                  </Link>
+                </li>
             </ul>
             )}
           </div>
