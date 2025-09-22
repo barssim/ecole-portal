@@ -66,7 +66,7 @@ if (language === "fr") {
 		try {
 			const { surname, firstname, email, adresse, password } = formData;
 			const token = sessionStorage.getItem('jwt_token');
-			const response = await axios.post(REST_API_GATEWAY_URL + "api/auth/register", {
+			const response = await axios.post(`${process.env.REACT_APP_API_GATEWAY_URL}/api/auth/register`, {
 				surname,
 				firstname,
 				email,
