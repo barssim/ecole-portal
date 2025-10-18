@@ -33,6 +33,9 @@ import SharedDocumentsPage from "./pages/SharedDocumentsPage";
 import ParentMeetingPage from "./pages/ParentMeetingPage";
 import StudentSchedulePage from "./components/StudentSchedulePage";
 import TeacherCourses  from "./pages/TeacherCourses";
+import OuttingPage  from "./pages/OuttingPage";
+
+
 
 
 const ProtectedRoute = ({ allowedRoles, children }) => {
@@ -125,6 +128,7 @@ useEffect(() => {
                      <Route path="/administration/classes" element={<ClassesPage language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/administration/examens" element={<ExamProgram language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/administration/attestations" element={<AttestationsPage language={language} toggleLanguage={toggleLanguage} />} />
+                      <Route path="/administration/activites/sorties" element={<OuttingPage language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/enseignement/parent-meetings" element={<ParentMeetingPage language={language} toggleLanguage={toggleLanguage} />} />
                        <Route path="/enseignant/cours" element={<TeacherCourses language={language} toggleLanguage={toggleLanguage} />} />
                       <Route path="/services/bibliotheque" element={<Bibliotheque />} />

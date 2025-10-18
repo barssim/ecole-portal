@@ -73,6 +73,14 @@ const [showActivites, setShowActivites] = useState(false);
                                                    </Link>
                                                  </li>
               <li>
+                              <Link
+                                to="/parents/attestation_demand"
+                                className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
+                              >
+                                {content.attestation_request || "Attestation request"}
+                              </Link>
+                            </li>
+              <li>
                 <Link
                   to="/parents/reports"
                   className="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded hover:bg-pink-200 inline-block"
