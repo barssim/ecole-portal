@@ -27,7 +27,6 @@ const Contact = ({ language }) => {
   return (
     <div style={containerStyle}>
       <h2 style={headingStyle}>{content.contactUs}</h2>
-      <form onSubmit={handleSubmit} style={formStyle}>
         <input
           type="text"
           name="name"
@@ -35,8 +34,8 @@ const Contact = ({ language }) => {
           value={formData.name}
           onChange={handleChange}
           required
-          style={wideInputStyle}
         />
+        <br />
         <input
           type="email"
           name="email"
@@ -44,8 +43,8 @@ const Contact = ({ language }) => {
           value={formData.email}
           onChange={handleChange}
           required
-          style={wideInputStyle}
         />
+        <br />
         <textarea
           name="message"
           placeholder={content.message || "Deine Nachricht"}
@@ -54,10 +53,10 @@ const Contact = ({ language }) => {
           required
           style={{ ...wideInputStyle, minHeight: "140px", resize: "vertical" }}
         />
+        <br />
         <button type="submit" style={buttonStyle}>
           {content.submit}
         </button>
-      </form>
     </div>
   );
 };

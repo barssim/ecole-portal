@@ -37,7 +37,21 @@ jobs:
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ecole_portal:latest
+
+      - name: Install SSH client
+        run: sudo apt-get install -y openssh-client
                
-           
+      - name: Pull Docker image on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
+            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/ecole_portal:latest
+            docker stop ecole_portal || true
+            docker rm ecole_portal || true
+            docker run -d --name ecole_portal -p 80:3000 ${{ secrets.DOCKER_HUB_USERNAME }}/ecole_portal:latest     
            
            
