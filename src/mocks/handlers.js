@@ -203,6 +203,16 @@ http.get(`${BASE_URL}/api/studentschedule`, () => {
                 }
               });
             }
+            if (username === 'finance' && password === 'financepass') {
+                          return HttpResponse.json({
+                            token: 'mock-admin-token',
+                            user: {
+                              id: 1,
+                              username: 'finance',
+                              roles: ['finance']
+                            }
+                          });
+                        }
         if (username === 'parent' && password === 'parentpass') {
                     return HttpResponse.json({
                       token: 'mock-admin-token',
@@ -254,16 +264,6 @@ http.get(`${BASE_URL}/api/studentschedule`, () => {
                        }
                      });
                    }
-                    if (username === 'Prof' && password === 'prof') {
-                           return HttpResponse.json({
-                             token: 'mock-user-token',
-                             user: {
-                               id: 8,
-                               username: 'Prof',
-                               roles: ['teacher']
-                             }
-                           });
-                         }
                           if (username === 'Salhi' && password === 'salhi') {
                                                     return HttpResponse.json({
                                                       token: 'mock-user-token',

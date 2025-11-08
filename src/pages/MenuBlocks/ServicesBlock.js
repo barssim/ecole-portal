@@ -6,13 +6,12 @@ const ServicesBlock = ({ isAuthorized, content }) => {
 const [showActivites, setShowActivites] = useState(false);
   return (
      <div className="bg-white p-4 shadow-md rounded-md">
-            <button
-                         onClick={() => setShowActivites(!showActivites)}
-                        disabled={!isAuthorized}
-                       className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
-                      >
-                        {content.services}
-                      </button>
+             <li
+                      className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
+                      onClick={() => isAuthorized && setShowActivites(!showActivites)}
+                    >
+                      {content.services}
+                    </li>
                     {showActivites && (
             <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
               <li>

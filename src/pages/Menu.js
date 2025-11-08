@@ -29,16 +29,24 @@ const Menu = ({ language }) => {
      const servicesRoles = ["student", "teacher" , "admin",  "manager"];
             const isServicesAuthorized = servicesRoles.some(role => userRoles.includes(role));
 
+  const menuBlocks = [
+    { component: <AdminBlock content={content} isAuthorized={isAdminAuthorized}/>,  isAuthorized : isAdminAuthorized},
+    { component: <TeacherBlock content={content}  isAuthorized={isTeacherAuthorized}/> , isAuthorized : isTeacherAuthorized},
+    { component: <StudentBlock content={content} isAuthorized={isStudentAuthorized}/>,isAuthorized : isStudentAuthorized},
+    { component: <ParentBlock content={content} isAuthorized={isParentAuthorized}/> , isAuthorized : isParentAuthorized},
+    { component: <ServicesBlock content={content} isAuthorized={isServicesAuthorized}/> , isAuthorized : isServicesAuthorized},
+    { component: <FinanceBlock content={content} isAuthorized={isFinanceAuthorized}/> , isAuthorized : isFinanceAuthorized},
+  ];
+
+  // Sort authorized blocks first
+  const sortedBlocks = menuBlocks.sort((a, b) => b.isAuthorized - a.isAuthorized);
+
   return (
     <div className="menu space-y-4 p-6 bg-sky-200 min-h-screen">
-        <AdminBlock isAuthorized={isAdminAuthorized} content={content} />
-        <TeacherBlock isAuthorized={isTeacherAuthorized} content={content} />
-        <StudentBlock isAuthorized={isStudentAuthorized} content={content} />
-        <ParentBlock isAuthorized={isParentAuthorized} content={content} />
-        <ServicesBlock isAuthorized={isServicesAuthorized} content={content} />
-        <FinanceBlock isAuthorized={isFinanceAuthorized} content={content} />
+      {sortedBlocks.map((block, index) => (
+        <div key={index}>{block.component}</div>
+      ))}
     </div>
-
   );
 };
 

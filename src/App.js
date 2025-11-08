@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ChatApp from './components/ChatApp';
 import PostInvoice from './components/PostInvoice';
 import Menu from './pages/Menu';
 import About from './pages/About';
@@ -107,7 +106,7 @@ useEffect(() => {
 <div className="bounce-container">
   <div className="bounce-content">
     <h4 style={{ color: "#00BBFF" }}>{content.whatYouFind}</h4>
-    <img src={ecole.logo} width="100" />
+    <img src={ecole.logo} width="300" />
   </div>
               	<div
                                                 style={{
@@ -158,7 +157,6 @@ useEffect(() => {
 </div>
 			</div>
 			<br />
-			<ChatApp language={language} toggleLanguage={toggleLanguage} />
 			<Footer language={language} toggleLanguage={toggleLanguage} />
 		</Router>
 	);

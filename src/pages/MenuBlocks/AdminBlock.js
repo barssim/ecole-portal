@@ -7,13 +7,13 @@ const AdminBlock = ({ isAuthorized, content }) => {
 
   return (
    <div className="bg-white p-4 shadow-md rounded-md">
-       <button
-             onClick={() => setShowActivites(!showActivites)}
-            disabled={!isAuthorized}
-            className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
-          >
-            {content.administration}
-          </button>
+
+          <li
+                   className={`menu-item ${isAuthorized ? "menu-item-active" : "menu-item-inactive"}`}
+                   onClick={() => isAuthorized && setShowActivites(!showActivites)}
+                 >
+                   {content.administration}
+                 </li>
         {showActivites && (
       <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
         <li>
